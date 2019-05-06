@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class collison : MonoBehaviour
 {
+    private Canvas joystick;
    // public TextMesh text;
   //  int count = 1;
     // Start is called before the first frame update
@@ -14,6 +15,7 @@ public class collison : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
+       
         //if(collision.gameObject.name == "PenguinV2")
         // {
         if (collision.gameObject.name== "PenguinV2(Clone)")
@@ -25,6 +27,22 @@ public class collison : MonoBehaviour
         if(collision.gameObject.name == "DeadZone")
         {
             Destroy((GameObject.Find("Player")));
+            ScoreController scontroller =    FindObjectOfType<ScoreController>();
+            scontroller.GameOver();
+            Time.timeScale = 0;
+            Canvas[] canvases = FindObjectsOfType<Canvas>();
+            foreach (Canvas canvas in canvases)
+            {
+                if (canvas.gameObject.name == "JoystickCanvas")
+                {
+                    
+                    Debug.Log("CANVASFINDED");
+                    joystick = canvas;
+                }
+            }
+            joystick.gameObject.SetActive(false);
+            UIHome.instance.ShowGameOver();
+
         }
         Debug.Log("Enter Called"+collision.gameObject.name);
 

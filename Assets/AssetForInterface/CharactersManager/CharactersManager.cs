@@ -42,7 +42,7 @@ public class CharactersManager : MonoBehaviour
 
     public Character GetCharacter(int i)
     {
-        if(i > characters.Count && i < 0)
+        if(i > characters.Count || i < 0)
         {
             Debug.Log("Error! Out of the range!");
             //return new Character();
@@ -86,6 +86,22 @@ public class CharactersManager : MonoBehaviour
             return;
         }
         characters[i].state = CharacterState.Bought;
+    }
+
+    public Character PlayableCharacter()
+    {
+        
+ 
+        for (int i = 0; i < characters.Count; i++)
+        {
+            if (characters[i].state == CharacterState.Selected)
+            {
+                return characters[i];
+            }
+           
+        }
+        return null;
+        
     }
     public int CountCharacters()
     {

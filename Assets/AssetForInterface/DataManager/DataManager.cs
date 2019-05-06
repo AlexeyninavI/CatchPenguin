@@ -21,14 +21,14 @@ public class DataManager : MonoBehaviour
             string valueDataStorage = PlayerPrefs.GetString(key);
             Debug.Log(valueDataStorage);
             DataStorage data = JsonUtility.FromJson<DataStorage>(valueDataStorage);
-            if(data == null)
+            if (data == null)
                 Debug.Log("data is null!");
 
             this.characters = new CharacterInfo[data.characters_name.Length];
             this.fish = data.fish;
             this.record = data.record;
             this.language = data.language;
-            for(int i = 0; i < data.characters_name.Length; i++)
+            for (int i = 0; i < data.characters_name.Length; i++)
             {
                 this.characters[i] = new CharacterInfo();
                 this.characters[i].name = data.characters_name[i];
@@ -54,7 +54,7 @@ public class DataManager : MonoBehaviour
                 characters[i].price = initCharacters[i].price;
                 characters[i].state = initCharacters[i].state;
             }
-        }
+       }
     }
 
     public void Save()
