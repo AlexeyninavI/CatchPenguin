@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class Play : UIScreen
 {
     public GameObject pausePanel;
@@ -34,6 +34,7 @@ public class Play : UIScreen
 
     void Initialize()
     {
+        Time.timeScale = 1;
         sc = FindObjectOfType<ScoreController>();
        Canvas[] canvases = FindObjectsOfType<Canvas>();
         foreach (Canvas canvas in canvases)
@@ -68,7 +69,8 @@ public class Play : UIScreen
         pauseBtn.SetActive(true);
         
         sc.Restart();
-
+        SceneManager.LoadScene("mENU");
+        
         Hide();
         UIHome.instance.ShowMenu();
     }
