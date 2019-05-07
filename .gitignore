@@ -35,9 +35,4 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-*.meta
-*.meta
-ProjectSettings/ProjectVersion.txt
-Assets/AssetForInterface/Scripts.meta
-ProjectSettings/ProjectVersion.txt
-Assets/AssetForInterface/Scripts.meta
+
