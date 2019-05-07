@@ -8,7 +8,8 @@ public class ScoreController : MonoBehaviour
     protected float scoreUpLimit = 0.1f;
     public float ScoreUpLimit
     {
-        get {
+        get
+        {
             return scoreUpLimit;
         }
         set
@@ -33,7 +34,7 @@ public class ScoreController : MonoBehaviour
     public uint Record { get { return record; } }
     public uint Reward { get { return reward; } }
 
-    void Initialize()
+    public void Initialize()
     {
         dm = FindObjectOfType<DataManager>();
         Debug.Log(dm);
@@ -56,7 +57,8 @@ public class ScoreController : MonoBehaviour
         if (score > record)
             record = score;
     }
-    public void Restart() {
+    public void Restart()
+    {
         score = 0;
         record = dm.record;
         reward = 0;
@@ -78,10 +80,11 @@ public class ScoreController : MonoBehaviour
         Restart();
         dm.Save();
     }
-    void Start()
+    void Awake()
     {
-        Initialize();
+        Debug.Log("ScoreController.Awake()");
     }
+
     void Update()
     {
         timeLastScaleUpdate += Time.deltaTime;

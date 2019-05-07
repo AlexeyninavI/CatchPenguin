@@ -70,9 +70,6 @@ public class Play : UIScreen
         
         sc.Restart();
         SceneManager.LoadScene("mENU");
-        
-        Hide();
-        UIHome.instance.ShowMenu();
     }
     public void OnContinueBtn() {
         Debug.Log("OnContinueBtn");

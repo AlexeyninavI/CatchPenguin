@@ -27,11 +27,9 @@ public class GameOver : UIScreen
     public void OnExitBtn() {
         Hide();
         SceneManager.LoadScene("mENU");
-        UIHome.instance.ShowMenu();
     }
     public void OnRestartBtn() {
         Hide();
         SceneManager.LoadScene("SampleScene");
-        UIHome.instance.ShowPlay();
     }
 }

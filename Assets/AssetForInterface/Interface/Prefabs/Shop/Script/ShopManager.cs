@@ -13,14 +13,13 @@ public class ShopManager : MonoBehaviour
     protected DataManager dm;
     protected CharactersManager cm;
 
-    void Awake()
+    public void Initialize()
     {
         dm = FindObjectOfType<DataManager>();
         cm = FindObjectOfType<CharactersManager>();
         if (dm == null && cm == null)
             Debug.Log("DataManager or CharactersManager is null!");
         currentIter = 0;
-        currentCharacter = new Character();
         currentCharacter = cm.GetCharacter(currentIter);
         if (currentCharacter == null)
             Debug.Log("currentCharacter is null!");
@@ -54,7 +53,7 @@ public class ShopManager : MonoBehaviour
     }
     public void BuyCharacter()
     {
-        if(dm.fish < currentCharacter.price)
+        if (dm.fish < currentCharacter.price)
         {
             Debug.Log("Need more fish!");
             return;
@@ -65,7 +64,7 @@ public class ShopManager : MonoBehaviour
     public void NextCharacter()
     {
         currentIter++;
-        if(currentIter == cm.CountCharacters())
+        if (currentIter == cm.CountCharacters())
         {
             nextBtnActivity = false;
         }
@@ -106,7 +105,8 @@ public class ShopManager : MonoBehaviour
     }
 }
 
-public enum ValueChooseCharacterBtn {
+public enum ValueChooseCharacterBtn
+{
     Select,
     Selected,
     Buy,

@@ -15,6 +15,7 @@ public class Menu : UIScreen
     {
         base.Show();
         LanguagePanel.SetActive(false);
+        Cursor.GetComponent<Animation>().Play();
     }
 
     public void OnLanguageBtn() {

@@ -35,26 +35,23 @@ public class DataManager : MonoBehaviour
                 this.characters[i].price = data.characters_price[i];
                 this.characters[i].state = data.characters_state[i];
             }
+            Debug.Log("array characters initialized!");
         }
         else  // Если игра запущена в первый раз
         {
             CharactersManager cm = FindObjectOfType<CharactersManager>();
             if (cm == null)
                 Debug.Log("cm is null!");
-            List<Character> initCharacters = cm.GetListCharacters();
-            Debug.Log(initCharacters);
-            Debug.Log(initCharacters.Count);
+            List<Character> initCharacters = cm.ListCharacters();
             characters = new CharacterInfo[initCharacters.Count];
-            Debug.Log(characters);
-            for(int i = 0; i < initCharacters.Count; i++)
+            for (int i = 0; i < initCharacters.Count; i++)
             {
                 characters[i] = new CharacterInfo();
-                Debug.Log(characters[i]);
                 characters[i].name = initCharacters[i].name;
                 characters[i].price = initCharacters[i].price;
                 characters[i].state = initCharacters[i].state;
             }
-       }
+        }
     }
 
     public void Save()
@@ -62,7 +59,7 @@ public class DataManager : MonoBehaviour
         CharactersManager cm = FindObjectOfType<CharactersManager>();
         if (cm == null)
             Debug.Log("cm is null!");
-        List<Character> initCharacters = cm.GetListCharacters();
+        List<Character> initCharacters = cm.ListCharacters();
         Debug.Log(initCharacters);
         Debug.Log(initCharacters.Count);
         characters = new CharacterInfo[initCharacters.Count];
@@ -97,11 +94,12 @@ public class DataManager : MonoBehaviour
     }
     public CharacterInfo[] GetCharacters()
     {
+        Debug.Log("call GetCharacters() ");
         return (CharacterInfo[])characters.Clone();
     }
     void Awake()
     {
-        Load();
+        Debug.Log("DataManager.Awake()");
     }
     //void OnDisable()
     //{

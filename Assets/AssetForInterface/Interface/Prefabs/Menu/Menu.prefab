@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 2
   LanguagePanel: {fileID: 5170000219397765283}
-  Cursor: {fileID: 0}
+  Cursor: {fileID: 2700274704524266852}
   dm: {fileID: 7294703177575888932, guid: 38866abfb98fce043a3fcc4cd5fb6f3f, type: 3}
 --- !u!222 &1158808377960103441
 CanvasRenderer:
@@ -746,6 +746,7 @@ GameObject:
   - component: {fileID: 1548142877421503476}
   - component: {fileID: 329921529689397093}
   - component: {fileID: 7617731757959347533}
+  - component: {fileID: 7931642015684711770}
   m_Layer: 5
   m_Name: TapButton
   m_TagString: Untagged
@@ -862,6 +863,22 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!111 &7931642015684711770
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759114291935412170}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 848b6e2941372ed4991c5d2fd97f70e5, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 848b6e2941372ed4991c5d2fd97f70e5, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &4889243331692608505
 GameObject:
   m_ObjectHideFlags: 0

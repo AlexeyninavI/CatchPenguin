@@ -27,7 +27,7 @@ public class collison : MonoBehaviour
         if(collision.gameObject.name == "DeadZone")
         {
             Destroy((GameObject.Find("Player")));
-            ScoreController scontroller =    FindObjectOfType<ScoreController>();
+            ScoreController scontroller = FindObjectOfType<ScoreController>();
             scontroller.GameOver();
             Time.timeScale = 0;
             Canvas[] canvases = FindObjectsOfType<Canvas>();
