@@ -12,9 +12,5 @@ public class Respawn : MonoBehaviour
         Instantiate(cm.PlayableCharacter(),transform);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

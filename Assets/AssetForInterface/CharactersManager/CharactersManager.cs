@@ -65,9 +65,9 @@ public class CharactersManager : MonoBehaviour
         }
         foreach (Character character in characters)
         {
-            if (character.state == CharacterState.Selected)
+            if (character.state == CharacterState.Bought)
             {
-                character.state = CharacterState.Bought;
+                character.state = CharacterState.Selected;
                 break;
             }
         }
