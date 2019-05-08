@@ -49,3 +49,5 @@ MonoBehaviour:
     type: 3}
   scoreControllersc: {fileID: 4462293312223956073, guid: 107fab2092fd0104cab29bc1195250ea,
     type: 3}
+  uiInterface: {fileID: 5757432330161617105, guid: be640386ebc12b84e8fa4b5124f8d344,
+    type: 3}

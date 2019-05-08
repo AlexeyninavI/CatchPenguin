@@ -422,7 +422,6 @@ MonoBehaviour:
   pausePanel: {fileID: 1960055578059644020}
   lowerBtnPanel: {fileID: 4072769933383614445}
   pauseBtn: {fileID: 7432070137486588369}
-  canvasJoystick: {fileID: 0}
 --- !u!1 &3414094233570284154
 GameObject:
   m_ObjectHideFlags: 0
