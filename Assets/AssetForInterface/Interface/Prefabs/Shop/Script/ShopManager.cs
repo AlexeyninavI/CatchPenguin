@@ -64,11 +64,14 @@ public class ShopManager : MonoBehaviour
     public void NextCharacter()
     {
         currentIter++;
-        if (currentIter == cm.CountCharacters())
+        Debug.Log("currentIter = " + currentIter);
+        Debug.Log("count characters = " + cm.CountCharacters());
+        if (currentIter == cm.CountCharacters() - 1)
         {
             nextBtnActivity = false;
         }
         prevBtnActivity = true;
+        Debug.Log(prevBtnActivity);
         HideCharacter();
         currentCharacter = cm.GetCharacter(currentIter);
         ShowCharacter();
@@ -76,6 +79,7 @@ public class ShopManager : MonoBehaviour
     public void PrevCharacter()
     {
         currentIter--;
+        Debug.Log(currentIter);
         if (currentIter == 0)
         {
             prevBtnActivity = false;
@@ -92,10 +96,11 @@ public class ShopManager : MonoBehaviour
         if (characterPanel == null)
             Debug.Log("characterPanel is null!");
 
-
+        Debug.Log("Show character");
         //currentCharacter.gameObject.transform. = characterPanel.transform.localToWorldMatrix;
         //characterPanel.transform.localScale;
         //currentCharacter.gameObject.transform.localScale = Vector3.
+
         currentCharacter.gameObject.transform.position = characterPanel.transform.position;
         currentCharacter.Show();
     }

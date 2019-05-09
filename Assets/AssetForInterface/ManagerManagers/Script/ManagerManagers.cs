@@ -24,6 +24,7 @@ public class ManagerManagers : MonoBehaviour
         if (scoreControllersc == null)
             Debug.Log("Не указан префаб scoreControllersc в ManagerManagers!");
         if (uiInterface == null)
+            if (uiInterface == null)
             Debug.Log("Не указан префаб [INTERFACE] в ManagerManagers!");
 
         charactersManager.Initialize(); // Инициализируем CharactersManager (создаём персонажей)
