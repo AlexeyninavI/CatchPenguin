@@ -15,7 +15,10 @@ public class Menu : UIScreen
     {
         base.Show();
         LanguagePanel.SetActive(false);
+<<<<<<< HEAD
         Cursor.GetComponent<Animation>().Play();
+=======
+>>>>>>> parent of c41ca43... наделал говна
     }
 
     public void OnLanguageBtn() {

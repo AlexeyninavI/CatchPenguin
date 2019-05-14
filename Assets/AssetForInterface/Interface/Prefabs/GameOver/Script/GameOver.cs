@@ -27,9 +27,14 @@ public class GameOver : UIScreen
     public void OnExitBtn() {
         Hide();
         SceneManager.LoadScene("mENU");
+        UIHome.instance.ShowMenu();
     }
     public void OnRestartBtn() {
         Hide();
         SceneManager.LoadScene("SampleScene");
+<<<<<<< HEAD
+=======
+        UIHome.instance.ShowPlay();
+>>>>>>> parent of c41ca43... наделал говна
     }
 }

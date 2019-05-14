@@ -13,13 +13,14 @@ public class ShopManager : MonoBehaviour
     protected DataManager dm;
     protected CharactersManager cm;
 
-    public void Initialize()
+    void Awake()
     {
         dm = FindObjectOfType<DataManager>();
         cm = FindObjectOfType<CharactersManager>();
         if (dm == null && cm == null)
             Debug.Log("DataManager or CharactersManager is null!");
         currentIter = 0;
+        currentCharacter = new Character();
         currentCharacter = cm.GetCharacter(currentIter);
         if (currentCharacter == null)
             Debug.Log("currentCharacter is null!");
@@ -53,7 +54,7 @@ public class ShopManager : MonoBehaviour
     }
     public void BuyCharacter()
     {
-        if (dm.fish < currentCharacter.price)
+        if(dm.fish < currentCharacter.price)
         {
             Debug.Log("Need more fish!");
             return;
@@ -64,14 +65,11 @@ public class ShopManager : MonoBehaviour
     public void NextCharacter()
     {
         currentIter++;
-        Debug.Log("currentIter = " + currentIter);
-        Debug.Log("count characters = " + cm.CountCharacters());
-        if (currentIter == cm.CountCharacters() - 1)
+        if(currentIter == cm.CountCharacters())
         {
             nextBtnActivity = false;
         }
         prevBtnActivity = true;
-        Debug.Log(prevBtnActivity);
         HideCharacter();
         currentCharacter = cm.GetCharacter(currentIter);
         ShowCharacter();
@@ -79,7 +77,6 @@ public class ShopManager : MonoBehaviour
     public void PrevCharacter()
     {
         currentIter--;
-        Debug.Log(currentIter);
         if (currentIter == 0)
         {
             prevBtnActivity = false;
@@ -96,11 +93,10 @@ public class ShopManager : MonoBehaviour
         if (characterPanel == null)
             Debug.Log("characterPanel is null!");
 
-        Debug.Log("Show character");
+
         //currentCharacter.gameObject.transform. = characterPanel.transform.localToWorldMatrix;
         //characterPanel.transform.localScale;
         //currentCharacter.gameObject.transform.localScale = Vector3.
-
         currentCharacter.gameObject.transform.position = characterPanel.transform.position;
         currentCharacter.Show();
     }
@@ -110,8 +106,7 @@ public class ShopManager : MonoBehaviour
     }
 }
 
-public enum ValueChooseCharacterBtn
-{
+public enum ValueChooseCharacterBtn {
     Select,
     Selected,
     Buy,

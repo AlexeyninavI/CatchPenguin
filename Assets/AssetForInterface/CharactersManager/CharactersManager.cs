@@ -14,11 +14,10 @@ public class CharactersManager : MonoBehaviour
         characters = new List<Character>();
         foreach (Character characterPref in charactersPrefs)
         {
-            Character createdCharacter = Instantiate(characterPref);
+            Character createdCharacter = Instantiate(characterPref, transform);
             createdCharacter.Hide();
             characters.Add(createdCharacter);
         }
-
     }
 
     public void InitializeCharactersFromDataManager()
@@ -27,25 +26,23 @@ public class CharactersManager : MonoBehaviour
         if (dm == null)
             Debug.Log("dm is null!");
         CharacterInfo[] charactersFromDataManager = dm.GetCharacters();
-        if (charactersFromDataManager == null)
-            Debug.Log("dm.characters is null!");
-        for (int i = 0; i < charactersFromDataManager.Length; i++)
+        for(int i = 0; i < charactersFromDataManager.Length; i++)
         {
-            for (int j = 0; j < characters.Count; j++)
+            for(int j = 0; j < characters.Count; j++)
             {
-                if (characters[j].name == charactersFromDataManager[i].name)
+                if(characters[j].name == charactersFromDataManager[i].name)
                 {
                     characters[j].price = charactersFromDataManager[i].price;
                     characters[j].state = charactersFromDataManager[i].state;
                     break;
                 }
-            }
+            }          
         }
     }
 
     public Character GetCharacter(int i)
     {
-        if (i > characters.Count || i < 0)
+        if(i > characters.Count || i < 0)
         {
             Debug.Log("Error! Out of the range!");
             //return new Character();
@@ -54,9 +51,9 @@ public class CharactersManager : MonoBehaviour
         //return new Character(characters[i]);
         return characters[i];
     }
-    public List<Character> ListCharacters()
+    public List<Character> GetListCharacters()
     {
-        return characters;
+        return new List<Character>(characters);
     }
 
     public void SelectCharacter(int i)
@@ -68,13 +65,13 @@ public class CharactersManager : MonoBehaviour
         }
         foreach (Character character in characters)
         {
-            if (character.state == CharacterState.Selected)
+            if (character.state == CharacterState.Bought)
             {
-                character.state = CharacterState.Bought;
+                character.state = CharacterState.Selected;
                 break;
             }
         }
-        if (characters[i].state == CharacterState.Sale)
+        if(characters[i].state == CharacterState.Sale)
         {
             Debug.Log("Begin need buy character!");
             return;
@@ -83,7 +80,7 @@ public class CharactersManager : MonoBehaviour
     }
     public void BuyCharacter(int i)
     {
-        if (characters[i].state == CharacterState.Bought || characters[i].state == CharacterState.Selected)
+        if(characters[i].state == CharacterState.Bought || characters[i].state == CharacterState.Selected)
         {
             Debug.Log("Character already bought!");
             return;
@@ -93,18 +90,18 @@ public class CharactersManager : MonoBehaviour
 
     public Character PlayableCharacter()
     {
-
-
+        
+ 
         for (int i = 0; i < characters.Count; i++)
         {
             if (characters[i].state == CharacterState.Selected)
             {
-                return Instantiate(characters[i]);
+                return characters[i];
             }
-
+           
         }
         return null;
-
+        
     }
     public int CountCharacters()
     {
@@ -112,11 +109,11 @@ public class CharactersManager : MonoBehaviour
     }
     void Awake()
     {
-        Debug.Log("CharactersManager.Awake()");
+        Initialize();
     }
     void Start()
     {
-        Debug.Log("CharactersManager.Start()");
+        InitializeCharactersFromDataManager();
     }
-
+    
 }
