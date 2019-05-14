@@ -7,7 +7,6 @@ public class ManagerManagers : MonoBehaviour
     public DataManager dataManager;
     public CharactersManager charactersManager;
     public ScoreController scoreControllersc;
-    public UIHome uiInterface;
 
     void LoadManagers()
     {
@@ -23,9 +22,13 @@ public class ManagerManagers : MonoBehaviour
             Debug.Log("Не указан префаб charactersManager в ManagerManagers!");
         if (scoreControllersc == null)
             Debug.Log("Не указан префаб scoreControllersc в ManagerManagers!");
+<<<<<<< HEAD
         if (uiInterface == null)
             if (uiInterface == null)
             Debug.Log("Не указан префаб [INTERFACE] в ManagerManagers!");
+=======
+
+>>>>>>> parent of eddaa80... Реализовал смену языка интерфейса. Для этого пришлось изменить префаб ManagerManagers и сделать так, чтобы из него загружался префаб [INTERFACE]. Для сцены SimpleScene создал копию префаба интерфейса [INTERFACE]Play. Внёс небольшие изменения в collision.cs(сделал так, чтобы при коллизии с пингвином собиралась рыба. Почемуто не работает джостик при старте игры, а если нажать на паузу, а потом продолжить, то работает
 
         charactersManager.Initialize(); // Инициализируем CharactersManager (создаём персонажей)
         dataManager.Load(); // Загружаем данные в DataManager
@@ -36,8 +39,6 @@ public class ManagerManagers : MonoBehaviour
     {
         LoadManagers();
         InitManagers();
-
-        uiInterface = Instantiate(uiInterface, transform); // Загружаем интерфейс
         UIScreen[] screens = FindObjectsOfType<UIScreen>();
         if (screens != null)
         {
@@ -55,11 +56,6 @@ public class ManagerManagers : MonoBehaviour
             }
         }
         else Debug.Log("Screens not found!");
-    }
-
-    void OnDisable()
-    {
-        Debug.Log("Disable ManagerManagers");
     }
 
 }

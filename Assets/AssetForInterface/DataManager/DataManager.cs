@@ -101,11 +101,10 @@ public class DataManager : MonoBehaviour
     {
         Debug.Log("DataManager.Awake()");
     }
-    void OnDisable()
-    {
-        Debug.Log("Disable DataManager");
-        Save();
-    }
+    //void OnDisable()
+    //{
+    //    Save();
+    //}
 }
 class DataStorage
 {

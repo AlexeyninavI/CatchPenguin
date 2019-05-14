@@ -755,8 +755,187 @@ RectTransform:
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &297723647
 PrefabInstance:
+=======
+--- !u!1001 &297723647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5757432330161617132, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_Name
+      value: '[INTERFACE] (1)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617104, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617105, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: screenPrefs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5757432330161617105, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: screenPrefs.Array.data[1]
+      value: 
+      objectReference: {fileID: 7763178488014274038, guid: cb5b232f983f2fc49993d7ebd2077241,
+        type: 3}
+    - target: {fileID: 5757432330161617105, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: screenPrefs.Array.data[2]
+      value: 
+      objectReference: {fileID: 7763178488014274038, guid: cb5b232f983f2fc49993d7ebd2077241,
+        type: 3}
+    - target: {fileID: 5757432330161617105, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: screenPrefs.Array.data[0]
+      value: 
+      objectReference: {fileID: 7763178488014274038, guid: cb5b232f983f2fc49993d7ebd2077241,
+        type: 3}
+    - target: {fileID: 5757432330161617105, guid: be640386ebc12b84e8fa4b5124f8d344,
+        type: 3}
+      propertyPath: defaultScreenPref
+      value: 
+      objectReference: {fileID: 2643513908906793450, guid: 4095295cb5afd364cbb91b1711816d56,
+        type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: be640386ebc12b84e8fa4b5124f8d344, type: 3}
+--- !u!1 &534669902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 534669905}
+  - component: {fileID: 534669904}
+  - component: {fileID: 534669903}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &534669903
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+--- !u!20 &534669904
+Camera:
+>>>>>>> parent of eddaa80... Реализовал смену языка интерфейса. Для этого пришлось изменить префаб ManagerManagers и сделать так, чтобы из него загружался префаб [INTERFACE]. Для сцены SimpleScene создал копию префаба интерфейса [INTERFACE]Play. Внёс небольшие изменения в collision.cs(сделал так, чтобы при коллизии с пингвином собиралась рыба. Почемуто не работает джостик при старте игры, а если нажать на паузу, а потом продолжить, то работает
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
@@ -2003,7 +2182,11 @@ PrefabInstance:
     - target: {fileID: 8518324550895124951, guid: 1c112d7e79ad0414aa0eb11e6a627077,
         type: 3}
       propertyPath: m_RootOrder
+<<<<<<< HEAD
       value: 4
+=======
+      value: 19
+>>>>>>> parent of eddaa80... Реализовал смену языка интерфейса. Для этого пришлось изменить префаб ManagerManagers и сделать так, чтобы из него загружался префаб [INTERFACE]. Для сцены SimpleScene создал копию префаба интерфейса [INTERFACE]Play. Внёс небольшие изменения в collision.cs(сделал так, чтобы при коллизии с пингвином собиралась рыба. Почемуто не работает джостик при старте игры, а если нажать на паузу, а потом продолжить, то работает
       objectReference: {fileID: 0}
     - target: {fileID: 8518324550895124951, guid: 1c112d7e79ad0414aa0eb11e6a627077,
         type: 3}
@@ -2592,10 +2775,14 @@ RectTransform:
   - {fileID: 1516936394}
   m_Father: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_RootOrder: 24
 =======
   m_RootOrder: 19
 >>>>>>> e47454417cc5795237a8664b4e8c7e602e3ce8d5
+=======
+  m_RootOrder: 20
+>>>>>>> parent of eddaa80... Реализовал смену языка интерфейса. Для этого пришлось изменить префаб ManagerManagers и сделать так, чтобы из него загружался префаб [INTERFACE]. Для сцены SimpleScene создал копию префаба интерфейса [INTERFACE]Play. Внёс небольшие изменения в collision.cs(сделал так, чтобы при коллизии с пингвином собиралась рыба. Почемуто не работает джостик при старте игры, а если нажать на паузу, а потом продолжить, то работает
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

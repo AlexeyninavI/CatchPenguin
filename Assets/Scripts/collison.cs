@@ -15,21 +15,20 @@ public class collison : MonoBehaviour
     }
     void OnCollisionEnter(Collision collision)
     {
-
+       
         //if(collision.gameObject.name == "PenguinV2")
         // {
-        ScoreController scontroller = FindObjectOfType<ScoreController>(); // Получаем ScoreController
         if (collision.gameObject.name== "PenguinV2(Clone)")
         {
             Destroy(collision.gameObject);
-            scontroller.RewardUp(); // При взаимодействии с пингвинов увеличивается счетчик рыбы на 1
            // text.text = count.ToString();
            // count++;
         }
         if(collision.gameObject.name == "DeadZone")
         {
             Destroy((GameObject.Find("Player")));
-            scontroller.StopGame(); // Остановливаю счетчик
+            ScoreController scontroller = FindObjectOfType<ScoreController>();
+            scontroller.GameOver();
             Time.timeScale = 0;
             Canvas[] canvases = FindObjectsOfType<Canvas>();
             foreach (Canvas canvas in canvases)
