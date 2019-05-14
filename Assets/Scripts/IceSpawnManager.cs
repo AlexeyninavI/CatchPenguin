@@ -15,7 +15,7 @@ public class IceSpawnManager : MonoBehaviour
     
     public static int count = 4;
     public Transform spawnpoint;
-    
+  //  public List<IceScript> blocks = new List<IceScript>();
     private GameObject[,] Clones = new GameObject[count,count];
     public Transform[,] SpawnPoint = new Transform[count, count];
     public bool[,] Trigger = new bool[count, count];
