@@ -12,10 +12,9 @@ GameObject:
   - component: {fileID: 5757432330161617107}
   - component: {fileID: 5757432330161617106}
   - component: {fileID: 5757432330161617133}
-  - component: {fileID: 7508222335084371974}
   - component: {fileID: 5757432330161617105}
   m_Layer: 5
-  m_Name: '[INTERFACE]'
+  m_Name: '[INTERFACE] Play'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,19 +99,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7508222335084371974
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5757432330161617132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6cf19b67fe6510749a43faf27b1a92a8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 5757432330161617107}
 --- !u!114 &5757432330161617105
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,9 +112,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenPrefs:
-  - {fileID: 1416147714417622969, guid: 042b027e962994f4b9bd55b466aa57ab, type: 3}
-  - {fileID: 4486723552269673548, guid: f39e34de061ea8449986ddde18694f81, type: 3}
-  - {fileID: 2643513908906793450, guid: 4095295cb5afd364cbb91b1711816d56, type: 3}
   - {fileID: 7763178488014274038, guid: cb5b232f983f2fc49993d7ebd2077241, type: 3}
-  defaultScreenPref: {fileID: 5378087151475981197, guid: 1e3770d5cb074cf4a8a7fbdfcf6caff7,
+  defaultScreenPref: {fileID: 2643513908906793450, guid: 4095295cb5afd364cbb91b1711816d56,
     type: 3}

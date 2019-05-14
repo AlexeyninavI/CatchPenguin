@@ -16,7 +16,6 @@ public class Play : UIScreen
         Initialize();
         texts = GetComponentsInChildren<Text>();
         sc.PlayGame();
-
     }
 
     void Update() {
@@ -36,7 +35,7 @@ public class Play : UIScreen
     {
         Time.timeScale = 1;
         sc = FindObjectOfType<ScoreController>();
-       Canvas[] canvases = FindObjectsOfType<Canvas>();
+        Canvas[] canvases = FindObjectsOfType<Canvas>();
         foreach (Canvas canvas in canvases)
         {
             if (canvas.gameObject.name == "JoystickCanvas")
@@ -70,19 +69,83 @@ public class Play : UIScreen
         
         sc.Restart();
         SceneManager.LoadScene("mENU");
-        
-        Hide();
-        UIHome.instance.ShowMenu();
     }
     public void OnContinueBtn() {
         Debug.Log("OnContinueBtn");
         pausePanel.SetActive(false);
         lowerBtnPanel.SetActive(false);
 
-       joystick.gameObject.SetActive(true);
+        joystick.gameObject.SetActive(true);
 
         pauseBtn.SetActive(true);
         Time.timeScale = 1;
         sc.PlayGame();
+    }
+    public override void Show()
+    {
+        base.Show();
+        DataManager dm = FindObjectOfType<DataManager>();
+        if (dm.language == "rus")
+        {
+            ChangeRusLanguage();
+            return;
+        }
+        if (dm.language == "eng")
+        {
+            ChangeEngLanguage();
+            return;
+        }
+    }
+    public void ChangeRusLanguage()
+    {
+        Debug.Log("Changed rus language");
+        Text[] texts = GetComponentsInChildren<Text>();
+
+        foreach (Text text in texts) {
+            if (text.name == "ScoreTitleText") {
+                text.text = "счет"; continue;
+            }
+            if (text.name == "RecordTitleText") {
+                text.text = "рекорд"; continue;
+            }
+            if (text.name == "PauseText") {
+                text.text = "пауза"; continue;
+            }
+            if (text.name == "ExitText") {
+                text.text = "выход"; continue;
+            }
+            if (text.name == "ContinueText") {
+                text.text = "продолжить"; continue;
+            }
+        }
+    }
+    public void ChangeEngLanguage()
+    {
+        Debug.Log("Changed rus language");
+        Text[] texts = GetComponentsInChildren<Text>();
+
+        foreach (Text text in texts)
+        {
+            if (text.name == "ScoreTitleText")
+            {
+                text.text = "score"; continue;
+            }
+            if (text.name == "RecordTitleText")
+            {
+                text.text = "record"; continue;
+            }
+            if (text.name == "PauseText")
+            {
+                text.text = "pause"; continue;
+            }
+            if (text.name == "ExitText")
+            {
+                text.text = "exit"; continue;
+            }
+            if (text.name == "ContinueText")
+            {
+                text.text = "continue"; continue;
+            }
+        }
     }
 }

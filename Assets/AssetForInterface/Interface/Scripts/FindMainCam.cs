@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Pause : MonoBehaviour
+public class FindMainCam : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public Canvas canvas;
+    void Awake()
     {
-        
+        canvas.worldCamera = FindObjectOfType<Camera>();
     }
 
     // Update is called once per frame
