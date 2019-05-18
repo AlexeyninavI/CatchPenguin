@@ -19,7 +19,7 @@ public class collison : MonoBehaviour
         //if(collision.gameObject.name == "PenguinV2")
         // {
         ScoreController scontroller = FindObjectOfType<ScoreController>(); // Получаем ScoreController
-        if (collision.gameObject.name== "PenguinV2(Clone)")
+        if (collision.gameObject.name== "penguin(Clone)")
         {
             Destroy(collision.gameObject);
             scontroller.RewardUp(); // При взаимодействии с пингвинов увеличивается счетчик рыбы на 1
