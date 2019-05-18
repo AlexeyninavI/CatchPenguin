@@ -12,6 +12,7 @@ public class IceBlockObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        unityObject = gameObject;
         GameObject island = GameObject.Find(name_island_object);
         anim = unityObject.GetComponent<Animator>();
         GlobalSpawnBlocks gsb = island.GetComponent<GlobalSpawnBlocks>();
@@ -20,16 +21,16 @@ public class IceBlockObject : MonoBehaviour
 
     public void setSwimming()
     {
-        isSwim = false;
+        isSwim = false; //LOH
         anim.SetBool("IsSwim", false);
-        anim.SetBool("NoSwim", true);
+       // anim.SetBool("NoSwim", true);
         //anim.Play("ice_down");
     }
     public void setUp()
     {
-        isSwim = true;
+        isSwim = true; //ne loh
         anim.SetBool("IsSwim", true);
-        anim.SetBool("NoSwim", false);
+       // anim.SetBool("NoSwim", false);
     }
     public void checkerSwim(bool flag)
     {
