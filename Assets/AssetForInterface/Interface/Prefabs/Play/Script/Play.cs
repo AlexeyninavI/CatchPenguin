@@ -39,9 +39,13 @@ public class Play : UIScreen
         foreach (Canvas canvas in canvases)
         {
             if (canvas.gameObject.name == "JoystickCanvas")
-            {;
+            {
                 Debug.Log("CANVASFINDED");
                 joystick = canvas;
+                joystick.gameObject.SetActive(false);
+                joystick.gameObject.SetActive(true);
+                //RectTransform joystickRect = joystick.GetComponent<RectTransform>();
+                //joystickRect.SetAsLastSibling();
             }
         }
         
@@ -58,6 +62,18 @@ public class Play : UIScreen
         joystick.gameObject.SetActive(false);
         Time.timeScale = 0;
         sc.StopGame();
+
+        DataManager dm = FindObjectOfType<DataManager>();
+        if (dm.language == "rus")
+        {
+            ChangeRusLanguage();
+            return;
+        }
+        if (dm.language == "eng")
+        {
+            ChangeEngLanguage();
+            return;
+        }
 
         Debug.Log("Pause!");
     }
