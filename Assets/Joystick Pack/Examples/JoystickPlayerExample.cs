@@ -10,22 +10,27 @@ public class JoystickPlayerExample : MonoBehaviour
     public float speed;
     public VariableJoystick variableJoystick;
     public Rigidbody rb;
+
     
+
     Animator anim;
 
     public void Start()
     {
-        anim = GetComponent<Animator>();
+                anim = GetComponent<Animator>();
         
     }
     public void FixedUpdate()
     {
-        
 
+        
         Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
         rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
         
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = rotation;
         Animating();
+
     }
     void Animating()
     {
