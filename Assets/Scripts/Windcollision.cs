@@ -5,11 +5,11 @@ using UnityEngine;
 public class Windcollision : MonoBehaviour
 {
     
-    public float hoverForce = 0f;
+    public float force;
     public float timeRemaining = 900f;
     public float timeIncrease = 2;
     bool wind = false;
-
+    float hoverForce;
     int napravlen;
     void Start()
     {
@@ -23,14 +23,14 @@ public class Windcollision : MonoBehaviour
         Debug.Log("CHI DA" + timeRemaining);
         if (timeRemaining < 0 && wind == false)
         {
-            hoverForce = 24f;
+            hoverForce = force;
             timeRemaining = 900f;
             napravlen = Random.Range(1, 4);
             wind = true;
         }
         else if (timeRemaining < 0 && wind == true)
         {
-            hoverForce = 0f;
+            hoverForce = 0;
             timeRemaining = 900f;
             wind = false;
         }
