@@ -1627,6 +1627,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -5153660129446856725, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
+        type: 3}
+      propertyPath: variableJoystick
+      value: 
+      objectReference: {fileID: 748214283}
+    - target: {fileID: -5153660129446856725, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
+        type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 3725615526554497728, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1682,31 +1692,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -5153660129446856725, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
-        type: 3}
-      propertyPath: variableJoystick
-      value: 
-      objectReference: {fileID: 748214283}
-    - target: {fileID: -5153660129446856725, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
-        type: 3}
-      propertyPath: speed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3725615527831253422, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: d83d97f89d195984ebf20ef3e38153e8, type: 2}
-    - target: {fileID: 7859879203822961614, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 2.2996798
-      objectReference: {fileID: 0}
-    - target: {fileID: 7859879203822961614, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 1.1292737
-      objectReference: {fileID: 0}
     - target: {fileID: -4161186895318340401, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
         type: 3}
       propertyPath: m_IsKinematic
@@ -1737,6 +1722,21 @@ PrefabInstance:
       propertyPath: m_Constraints
       value: 112
       objectReference: {fileID: 0}
+    - target: {fileID: 7859879203822961614, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.2996798
+      objectReference: {fileID: 0}
+    - target: {fileID: 7859879203822961614, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 1.1292737
+      objectReference: {fileID: 0}
+    - target: {fileID: 3725615527831253422, guid: 26ca46f6e87a9f04a98b5475cb87c0a9,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: d83d97f89d195984ebf20ef3e38153e8, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26ca46f6e87a9f04a98b5475cb87c0a9, type: 3}
 --- !u!224 &748214282 stripped
@@ -1969,7 +1969,7 @@ PrefabInstance:
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -479
+      value: -480
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984436, guid: ec536a7718376554185e4a856d5ae230,
         type: 3}
@@ -2025,11 +2025,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230,
-        type: 3}
-      propertyPath: snapX
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803815115471, guid: ec536a7718376554185e4a856d5ae230,
         type: 3}
@@ -2162,6 +2157,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: beebe40ee885c334c90c4b34e2f8680e,
         type: 3}
+    - target: {fileID: 3881087803549984439, guid: ec536a7718376554185e4a856d5ae230,
+        type: 3}
+      propertyPath: snapX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3881087804030458057, guid: ec536a7718376554185e4a856d5ae230,
         type: 3}
       propertyPath: m_Sprite
@@ -5195,12 +5195,12 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 19, y: 600}
+  m_ReferenceResolution: {x: 1080, y: 1920}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 1
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
