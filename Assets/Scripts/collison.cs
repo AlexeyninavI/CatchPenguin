@@ -14,15 +14,31 @@ public class collison : MonoBehaviour
         //if(collision.gameObject.name == "PenguinV2")
         // {
         ScoreController scontroller = FindObjectOfType<ScoreController>(); // Получаем ScoreController
-        if (collision.gameObject.name == "penguin(Clone)")
+                                                                           /**
+                                                                           if (collision.gameObject.name == "penguin(Clone)")
+                                                                           {
+                                                                               Destroy(collision.gameObject);
+                                                                               Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+                                                                               scontroller.RewardUp(); // При взаимодействии с пингвинов увеличивается счетчик рыбы на 1
+                                                                                                       // text.text = count.ToString();
+                                                                                                       // count++;
+                                                                           }
+                                                                           else if (collision.gameObject.name == "penguin_E3(Clone)") // E3 version
+                                                                           {
+                                                                               Destroy(collision.gameObject);
+                                                                               Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+                                                                               scontroller.RewardUp();
+                                                                           }
+                                                                       **/
+        if (collision.gameObject.tag == "Penguin")
         {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
-            scontroller.RewardUp(); // При взаимодействии с пингвинов увеличивается счетчик рыбы на 1
-                                    // text.text = count.ToString();
-                                    // count++;
+            scontroller.RewardUp();
         }
         else if (collision.gameObject.name == "fishBullet(Clone)")
         {
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
             scontroller.RewardUp(); // При взаимодействии с пингвинов увеличивается счетчик рыбы на 1
         }
