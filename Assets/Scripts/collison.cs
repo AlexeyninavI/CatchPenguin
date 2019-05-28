@@ -7,12 +7,7 @@ public class collison : MonoBehaviour
     private Canvas joystick;
    // public TextMesh text;
   //  int count = 1;
-    // Start is called before the first frame update
-    void OnCollisionStay(Collision collision)
-    {
-        Debug.Log("Stay occuring");
 
-    }
     void OnCollisionEnter(Collision collision)
     {
 
@@ -43,7 +38,7 @@ public class collison : MonoBehaviour
                 if (canvas.gameObject.name == "JoystickCanvas")
                 {
 
-                    Debug.Log("CANVASFINDED");
+                    //Debug.Log("CANVASFINDED");
                     joystick = canvas;
                 }
             }
@@ -51,11 +46,11 @@ public class collison : MonoBehaviour
             UIHome.instance.ShowGameOver();
 
         }
-        Debug.Log("Enter Called"+collision.gameObject.name);
+        //Debug.Log("Enter Called"+collision.gameObject.name);
 
     }
     void OnCollisionExit(Collision collisison)
     {
-        Debug.Log("KAVO?");
+        //Debug.Log("KAVO?");
     }
 }
