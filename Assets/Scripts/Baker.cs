@@ -13,13 +13,23 @@ public class Baker : MonoBehaviour
     // Use this for initialization
     void Bake()
     {
-        nav = GetComponent<UnityEngine.AI.NavMeshSurface>();
         nav.BuildNavMesh();
     }
+
+
+    private void SetOptimization()
+    {
+        nav.overrideVoxelSize = true;
+        nav.voxelSize = 0.25f;
+        nav.overrideTileSize = true;
+        nav.tileSize = 64;
+    }
+
     void Start()
     {
+        nav = GetComponent<UnityEngine.AI.NavMeshSurface>();
+        SetOptimization();
         InvokeRepeating("Bake", 0, timef);
-
     }
 
     
