@@ -37,7 +37,7 @@ public class Menu : UIScreen
             ChangeEngLanguage();
         }
 
-        ShowPlaceholder();
+        //ShowPlaceholder();
     }
     public override void Hide()
     {
@@ -108,7 +108,7 @@ public class Menu : UIScreen
     public void HidePlaceholder()
     {
         Debug.Log("Destroy placeHolder! " + placeholder);
-        Destroy(placeholder.gameObject);
+        //Destroy(placeholder.gameObject);
     }
     public void ChangeRusLanguage()
     {
