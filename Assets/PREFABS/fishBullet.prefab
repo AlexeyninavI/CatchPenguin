@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 5405213923312936862}
   m_Layer: 0
   m_Name: fishBullet
-  m_TagString: Untagged
+  m_TagString: Penguin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
