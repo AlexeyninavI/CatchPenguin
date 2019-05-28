@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -73,7 +73,7 @@ public class Menu : UIScreen
         Debug.Log("Show about!");
     }
     public void TapOnScreenPanel() {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadSceneAsync("SampleScene");
         Debug.Log("Game start!");
     }
     public void Initialize()
