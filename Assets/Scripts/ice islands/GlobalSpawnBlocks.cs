@@ -88,12 +88,15 @@ public class GlobalSpawnBlocks : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        updateCount++;
-        if (updateCount >= updateTarget)
+        if (Time.timeScale == 1) // Если игра не на паузе, то делай то, что делал...
         {
-            generateBlocks();
-            updateCount = 0;
-            return;
+            updateCount++;
+            if (updateCount >= updateTarget)
+            {
+                generateBlocks();
+                updateCount = 0;
+                return;
+            }
         }
     }
 

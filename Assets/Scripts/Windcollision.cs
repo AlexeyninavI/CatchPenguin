@@ -20,7 +20,7 @@ public class Windcollision : MonoBehaviour
     void Update()
     {
         decreaseTimeRemaining();
-        Debug.Log("CHI DA" + timeRemaining);
+
         if (timeRemaining < 0 && wind == false)
         {
             hoverForce = force;
