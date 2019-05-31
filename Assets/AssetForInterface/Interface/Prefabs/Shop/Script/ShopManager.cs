@@ -100,8 +100,8 @@ public class ShopManager : MonoBehaviour
         //currentCharacter.gameObject.transform. = characterPanel.transform.localToWorldMatrix;
         //characterPanel.transform.localScale;
         //currentCharacter.gameObject.transform.localScale = Vector3.
-
-        currentCharacter.gameObject.transform.position = characterPanel.transform.position;
+        Vector3 pos = new Vector3(0, 0, -0.1f);
+        currentCharacter.gameObject.transform.position = characterPanel.transform.position+pos;
         currentCharacter.Show();
     }
     public void HideCharacter()

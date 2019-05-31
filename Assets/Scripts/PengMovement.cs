@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
-namespace SampleScene { 
+
 public class PengMovement : MonoBehaviour
 {
-    Transform player;
+   public  Transform player;
    
     UnityEngine.AI.NavMeshAgent nav;
 
 
     void Awake()
     {
-        player = GameObject.FindGameObjectWithTag("Target").transform;
+        //player = GameObject.FindGameObjectWithTag("Target").transform;
         nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
@@ -22,4 +22,4 @@ public class PengMovement : MonoBehaviour
         
     }
 }
-    }
+    
