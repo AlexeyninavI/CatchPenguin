@@ -29,14 +29,14 @@ public class GameOver : UIScreen
         sc.GameOver();
 
         Hide();
-        SceneManager.LoadScene("mENU");
+        SceneManager.LoadSceneAsync("mENU");
     }
     public void OnRestartBtn() {
         ScoreController sc = FindObjectOfType<ScoreController>();
         sc.GameOver();
 
         Hide();
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
     }
     public override void Show()
     {
