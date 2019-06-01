@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class JoystickPlayerExample : MonoBehaviour
@@ -7,7 +6,7 @@ public class JoystickPlayerExample : MonoBehaviour
     public float speed;
     public VariableJoystick variableJoystick;
     public Rigidbody rb;
-    private Animator anim;
+    public Animator anim;
 
     public void Start()
     {
@@ -45,21 +44,6 @@ public class JoystickPlayerExample : MonoBehaviour
     {
         // Create a boolean that is true if either of the input axes is non-zero.
         bool walking = variableJoystick.Horizontal != 0f || variableJoystick.Vertical != 0f;
-        float defaultAnimationSpeed = 1.0f;
-        if (walking)
-        {
-            float speedAnim = Math.Abs(defaultAnimationSpeed * variableJoystick.Vertical + defaultAnimationSpeed * variableJoystick.Horizontal);
-            if (speedAnim > defaultAnimationSpeed)
-            {
-                speedAnim = defaultAnimationSpeed;
-            }
-            anim.speed = speedAnim;
-            //Debug.Log("Speedy racer: " + speedAnim);
-        }
-        else
-        {
-            anim.speed = defaultAnimationSpeed;
-        }
 
         // Tell the animator whether or not the player is walking.
         anim.SetBool("IsWalking", walking);

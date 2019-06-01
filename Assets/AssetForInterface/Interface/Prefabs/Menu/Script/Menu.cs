@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -11,8 +11,6 @@ public class Menu : UIScreen
     public GameObject Cursor;
 
     protected DataManager dm;
-    protected CharactersManager cm;
-    Character placeholder;
 
     public override void Show()
     {
@@ -31,18 +29,13 @@ public class Menu : UIScreen
         if(dm.language == "rus")
         {
             ChangeRusLanguage();
+            return;
         }
         if(dm.language == "eng")
         {
             ChangeEngLanguage();
+            return;
         }
-
-        //ShowPlaceholder();
-    }
-    public override void Hide()
-    {
-        base.Hide();
-        HidePlaceholder();
     }
 
     public void OnLanguageBtn() {
@@ -73,8 +66,7 @@ public class Menu : UIScreen
         Debug.Log("Show about!");
     }
     public void TapOnScreenPanel() {
-        //SceneManager.LoadSceneAsync("SampleScene");
-        SceneManager.LoadSceneAsync("E3_2019_preview");
+        SceneManager.LoadScene("SampleScene");
         Debug.Log("Game start!");
     }
     public void Initialize()
@@ -82,33 +74,6 @@ public class Menu : UIScreen
         dm = FindObjectOfType<DataManager>();
         if (dm == null)
             Debug.Log("DataManager not found!");
-        cm = FindObjectOfType<CharactersManager>();
-        if (cm == null)
-            Debug.Log("CharacterManager not found!");
-    }
-    public void ShowPlaceholder()
-    {
-        placeholder = cm.PlayableCharacter();
-        RectTransform[] placeholderPanels = GetComponentsInChildren<RectTransform>();
-        Debug.Log("placeholder " + placeholder);
-        Debug.Log("placeholder panel " + placeholderPanels);
-        foreach(RectTransform placeholderPanel in placeholderPanels)
-        {
-            Debug.Log(placeholderPanel.name);
-            if(placeholderPanel.name == "Placeholder")
-            {
-                placeholder.gameObject.transform.localScale = Vector3.one * 0.06f;
-                placeholder.gameObject.transform.position = placeholderPanel.transform.position;
-                placeholder.gameObject.SetActive(true);
-                break;
-            }
-        }
-       
-    }
-    public void HidePlaceholder()
-    {
-        Debug.Log("Destroy placeHolder! " + placeholder);
-        //Destroy(placeholder.gameObject);
     }
     public void ChangeRusLanguage()
     {
