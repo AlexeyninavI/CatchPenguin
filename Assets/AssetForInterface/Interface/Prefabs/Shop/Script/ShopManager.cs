@@ -13,6 +13,14 @@ public class ShopManager : MonoBehaviour
     protected DataManager dm;
     protected CharactersManager cm;
 
+    void Update()
+    {
+        //if(currentCharacter != null && currentCharacter.gameObject != null)
+        //{
+            Debug.Log("Rotate character!");
+            currentCharacter.gameObject.transform.Rotate(0f, 0.5f, 0f, 0f);
+        //}
+    }
     public void Initialize()
     {
         dm = FindObjectOfType<DataManager>();
@@ -102,7 +110,7 @@ public class ShopManager : MonoBehaviour
         // Подгоняю размер и расположение персонажа под магазин
         Vector3 pos = new Vector3(0, 0, -0.1f);
         currentCharacter.gameObject.transform.position = characterPanel.transform.position+pos;
-        currentCharacter.gameObject.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
+        currentCharacter.gameObject.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
         currentCharacter.gameObject.transform.localRotation = new Quaternion(0f, 180f, 0f, 0f);
         currentCharacter.Show();
     }

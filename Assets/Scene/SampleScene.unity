@@ -3162,6 +3162,18 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 73e5f3952810a624c8e4c83fbe6cf503, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be0433884643d144c91aee8aabd406c7, type: 3}
+--- !u!114 &2007809063 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4360397810313227726, guid: 1c112d7e79ad0414aa0eb11e6a627077,
+    type: 3}
+  m_PrefabInstance: {fileID: 1928088360}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3a449430b4746642be198e448cfc0ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2011127720
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3719,6 +3731,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5757432330161617105, guid: 8aac63d6d1d8e194bb974686246a3a0e,
         type: 3}
+    - target: {fileID: 3509323898027920067, guid: ae9258f7f63922f46a62c24dbea8dc1f,
+        type: 3}
+      propertyPath: respawnManager
+      value: 
+      objectReference: {fileID: 2007809063}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae9258f7f63922f46a62c24dbea8dc1f, type: 3}
 --- !u!1001 &2124089535
