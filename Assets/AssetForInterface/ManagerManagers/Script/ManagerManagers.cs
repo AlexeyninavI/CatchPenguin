@@ -7,6 +7,7 @@ public class ManagerManagers : MonoBehaviour
     public DataManager dataManager;
     public CharactersManager charactersManager;
     public ScoreController scoreControllersc;
+    public Respawn respawnManager;
     public UIHome uiInterface;
 
     void LoadManagers()
@@ -36,6 +37,9 @@ public class ManagerManagers : MonoBehaviour
     {
         LoadManagers();
         InitManagers();
+
+        if(respawnManager != null)
+            respawnManager.SpawnCharacter();
 
         uiInterface = Instantiate(uiInterface, transform); // Загружаем интерфейс
         UIScreen[] screens = FindObjectsOfType<UIScreen>();
