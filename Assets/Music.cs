@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class Music : MonoBehaviour
@@ -7,8 +8,10 @@ public class Music : MonoBehaviour
     private AudioSource audioSource;
     private void Awake()
     {
-        //DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(transform.gameObject);
         audioSource = GetComponent<AudioSource>();
+        SceneManager.UnloadSceneAsync("Audio");
+        SceneManager.LoadScene("mENU");
     }
 
     public void PlayMusic()

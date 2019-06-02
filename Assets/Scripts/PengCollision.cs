@@ -5,26 +5,32 @@ using UnityEngine;
 public class PengCollision : MonoBehaviour
 {
 
-    PengMovement penguin;
 
+   private  GameObject target;
+    PengMovement penguin;
     void Start()
     {
-        penguin = gameObject.GetComponent<PengMovement>();
+        penguin = GetComponent<PengMovement>();
+        string kavo = penguin.target.name;
+        target = GameObject.Find(kavo);
     }
     void OnCollisionEnter(Collision collision)
     {
-        
+        Debug.Log(collision.gameObject.name);
+
        
-        if (collision.gameObject.transform == penguin.target)
+        if (collision.gameObject.name == "Target East")
         {
             Debug.Log("CHI DA");
-            Destroy(this.gameObject);
-        } else if (collision.gameObject.name == "fishBullet(Clone)")
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.name == "fishBullet(Clone)")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             // типо жрет рыбу
             Destroy(collision.gameObject);
-        } else if (collision.gameObject.tag == "Penguin")
+        }
+        else if (collision.gameObject.tag == "Penguin")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
         }

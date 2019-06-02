@@ -1,20 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Windcollision : MonoBehaviour
 {
-    
+    public Text messageText;
     public float force;
     public float timeRemaining = 900f;
-    public float timeIncrease = 2;
+    public TextMesh text;
     bool wind = false;
     float hoverForce;
     int napravlen;
+    public Transform bulletPrefab;
     void Start()
     {
         InvokeRepeating("decreaseTimeRemaining", 1.0f, 1.0f);
-        
+    
+        Transform bullet = Instantiate(bulletPrefab) as Transform;
+        Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponent<Collider>());
     }
 
     void Update()
@@ -27,12 +31,14 @@ public class Windcollision : MonoBehaviour
             timeRemaining = 900f;
             napravlen = Random.Range(1, 4);
             wind = true;
+            messageText.text = "Ветер дует";
         }
         else if (timeRemaining < 0 && wind == true)
         {
             hoverForce = 0;
             timeRemaining = 900f;
             wind = false;
+            messageText.text = "Ветер не дует";
         }
         
             
@@ -55,6 +61,7 @@ public class Windcollision : MonoBehaviour
                 {
                     if (other.attachedRigidbody)
                         other.attachedRigidbody.AddForce(Vector3.forward * hoverForce);
+                    
                     break;
                 }
             case 2:

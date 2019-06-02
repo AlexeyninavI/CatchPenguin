@@ -34,9 +34,9 @@ public class collison : MonoBehaviour
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
-            scontroller.RewardUp();
+            //scontroller.RewardUp();
         }
-        else if (collision.gameObject.name == "fishBullet(Clone)")
+        else if (collision.gameObject.name == "FishBullet(Clone)")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
@@ -67,6 +67,6 @@ public class collison : MonoBehaviour
     }
     void OnCollisionExit(Collision collisison)
     {
-        //Debug.Log("KAVO?");
+        
     }
 }
