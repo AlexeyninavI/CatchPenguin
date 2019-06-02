@@ -8,6 +8,7 @@ public class IceBlockObject : MonoBehaviour
     private bool isSwim = true;
     Animator anim;
     private string name_island_object = "Island";
+    GameObject bridge;
     
     // Start is called before the first frame update
     void Start()
@@ -17,19 +18,30 @@ public class IceBlockObject : MonoBehaviour
         anim = unityObject.GetComponent<Animator>();
         GlobalSpawnBlocks gsb = island.GetComponent<GlobalSpawnBlocks>();
         gsb.AddCube(this);
+       
     }
 
     public void setSwimming()
     {
         isSwim = false; //LOH
         anim.SetBool("IsSwim", false);
-       // anim.SetBool("NoSwim", true);
+        for (int i = 1; i < 5; i++)
+        {
+            bridge = this.gameObject.transform.GetChild(i).gameObject;
+            bridge.SetActive(true);
+        }
+        // anim.SetBool("NoSwim", true);
         //anim.Play("ice_down");
     }
     public void setUp()
     {
         isSwim = true; //ne loh
         anim.SetBool("IsSwim", true);
+        for (int i = 1; i < 5; i++)
+        {
+            bridge = this.gameObject.transform.GetChild(i).gameObject;
+            bridge.SetActive(false);
+        }
        // anim.SetBool("NoSwim", false);
     }
     public void checkerSwim(bool flag)

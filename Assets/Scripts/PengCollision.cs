@@ -5,12 +5,19 @@ using UnityEngine;
 public class PengCollision : MonoBehaviour
 {
 
+    PengMovement penguin;
 
+    void Start()
+    {
+        penguin = gameObject.GetComponent<PengMovement>();
+    }
     void OnCollisionEnter(Collision collision)
     {
-
-        if (collision.gameObject.name == "DeadZone")
+        
+       
+        if (collision.gameObject.transform == penguin.target)
         {
+            Debug.Log("CHI DA");
             Destroy(this.gameObject);
         } else if (collision.gameObject.name == "fishBullet(Clone)")
         {

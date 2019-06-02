@@ -3,7 +3,7 @@ using System.Collections;
 
 public class PengMovement : MonoBehaviour
 {
-   public  Transform player;
+   public  Transform target;
    
     UnityEngine.AI.NavMeshAgent nav;
 
@@ -18,7 +18,7 @@ public class PengMovement : MonoBehaviour
     void Update()
     {
        
-        nav.SetDestination(player.position);
+        nav.SetDestination(target.position);
         
     }
 }

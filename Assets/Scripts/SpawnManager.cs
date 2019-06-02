@@ -43,7 +43,7 @@ public class SpawnManager : MonoBehaviour
         
         
         script = this.PenguinV2.gameObject.GetComponent<PengMovement>();
-        script.player = Target;
+        script.target= Target;
         Instantiate(PenguinV2, RandomPointInBox(center[rolls], Zone[rolls]), SpawnLocation[rolls].rotation);
         // Find a random index between zero and one less than the number of spawn points.
         //int spawnPointIndex = RandomPointInBox( center, SpawnPoint.Scale)
