@@ -6,13 +6,10 @@ public class Respawn : MonoBehaviour
 {
     private CharactersManager cm;
     // Start is called before the first frame update
-
-    public void SpawnCharacter()
+    void Start()
     {
         cm = FindObjectOfType<CharactersManager>();
-        Debug.Log(cm);
-        Character chr = Instantiate(cm.PlayableCharacter(), transform);
-        chr.gameObject.SetActive(true);
+        Instantiate(cm.PlayableCharacter(),transform);
     }
 
     

@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class Menu : UIScreen
 {
     public GameObject LanguagePanel;
+    public GameObject Cursor;
 
     protected DataManager dm;
     protected CharactersManager cm;
@@ -17,8 +18,7 @@ public class Menu : UIScreen
     {
         base.Show();
         LanguagePanel.SetActive(false);
-        Time.timeScale = 1;
-        Debug.Log("Play animation cursor!");
+        Cursor.GetComponent<Animation>().Play();
         Initialize();
 
         Text[] texts = GetComponentsInChildren<Text>();
@@ -36,7 +36,8 @@ public class Menu : UIScreen
         {
             ChangeEngLanguage();
         }
-        
+
+        //ShowPlaceholder();
     }
     public override void Hide()
     {
@@ -48,8 +49,7 @@ public class Menu : UIScreen
         LanguagePanel.SetActive(!LanguagePanel.activeSelf);
     }
 
-    public void OnRusBtn()
-    {
+    public void OnRusBtn() {
         dm.language = "rus";
         ChangeRusLanguage();
     }
@@ -74,7 +74,7 @@ public class Menu : UIScreen
     }
     public void TapOnScreenPanel() {
         //SceneManager.LoadSceneAsync("SampleScene");
-        SceneManager.LoadSceneAsync("E3_2019_preview", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("E3_2019_preview");
         Debug.Log("Game start!");
     }
     public void Initialize()

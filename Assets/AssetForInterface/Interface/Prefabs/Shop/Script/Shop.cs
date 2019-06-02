@@ -54,7 +54,7 @@ public class Shop : UIScreen
         if (dm == null)
             Debug.Log("dm is null");
         dm.Save();
-        sm.HideCharacter();
+        sm.currentCharacter.Hide();
         Hide();
         UIHome.instance.ShowMenu();
     }
@@ -70,11 +70,6 @@ public class Shop : UIScreen
                     break;
                 }
         }
-
-        // Нужно, чтобы обновить данные о персонаже
-        sm.HideCharacter();
-        sm.ShowCharacter();
-
         UpdateInfoAboutCurrentCharacter();
     }
     public void OnArrowLeftBtn()

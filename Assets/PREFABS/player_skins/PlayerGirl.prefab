@@ -96,7 +96,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -205,7 +204,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -376,7 +374,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -402,7 +399,6 @@ GameObject:
   - component: {fileID: -2109608279365902281}
   - component: {fileID: 6867114898546279282}
   - component: {fileID: 4920086672737107474}
-  - component: {fileID: -7903744769052869888}
   m_Layer: 0
   m_Name: PlayerGirl
   m_TagString: Untagged
@@ -440,6 +436,7 @@ MonoBehaviour:
   speed: 22
   variableJoystick: {fileID: 0}
   rb: {fileID: 6867114898546279282}
+  anim: {fileID: 0}
 --- !u!114 &-2109608279365902281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -479,23 +476,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.2205768, z: 1}
-  m_Center: {x: 0, y: -0.088825464, z: 0}
---- !u!114 &-7903744769052869888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4851450902250893814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 449496e85b89114468b817a75f2f536e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  name: snowwoman
-  price: 100
-  state: 1
+  m_Size: {x: 1, y: 2.208785, z: 1}
+  m_Center: {x: 0, y: 0.08215636, z: 0}
 --- !u!1 &4999305181970781206
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +503,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4999305181970781206}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8728975, y: -1.1, z: -1.6735411}
+  m_LocalPosition: {x: -0.8728975, y: -0.9113556, z: -1.6735411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4435934578322993162}
@@ -646,7 +628,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -787,7 +768,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -928,7 +908,6 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
