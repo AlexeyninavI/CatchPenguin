@@ -17,7 +17,7 @@ public class JoystickPlayerExample : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
-
+        variableJoystick = FindObjectOfType<VariableJoystick>();
     }
 
     private Vector3 lookDir;

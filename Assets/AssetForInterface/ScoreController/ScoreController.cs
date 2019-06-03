@@ -57,6 +57,12 @@ public class ScoreController : MonoBehaviour
         if (score > record)
             record = score;
     }
+    public void ScaleUp(uint scale)
+    {
+        score+= scale;
+        if (score > record)
+            record = score;
+    }
     public void Restart()
     {
         score = 0;

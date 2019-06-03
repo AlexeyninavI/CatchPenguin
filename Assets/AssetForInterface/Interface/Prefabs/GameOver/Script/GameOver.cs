@@ -29,7 +29,7 @@ public class GameOver : UIScreen
         sc.GameOver();
 
         Hide();
-        SceneManager.LoadSceneAsync("mENU");
+        SceneManager.LoadSceneAsync("MenuS");
     }
     public void OnRestartBtn() {
         ScoreController sc = FindObjectOfType<ScoreController>();
