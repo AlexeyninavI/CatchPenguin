@@ -112,6 +112,13 @@ public class ShopManager : MonoBehaviour
         currentCharacter.gameObject.transform.position = characterPanel.transform.position + pos;
         currentCharacter.gameObject.transform.localScale = new Vector3(0.17f, 0.17f, 0.17f);
         currentCharacter.gameObject.transform.localRotation = new Quaternion(0f, 180f, 0f, 0f);
+
+        // disable shadow casting
+        MeshRenderer[] meshes = currentCharacter.gameObject.GetComponentsInChildren<MeshRenderer>();
+        for(int i = 0; i < meshes.Length; i++)
+        {
+            meshes[i].shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        }
         currentCharacter.Show();
     }
     public void HideCharacter()
