@@ -15,12 +15,20 @@ public class FishCollision : MonoBehaviour
         wind = GameObject.Find("Wind");
         Physics.IgnoreCollision(wind.GetComponent<Collider>(), GetComponent<Collider>());
     }
-    void OnCollisionEnter(Collision collision)
+
+    private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.name == "NavMeshWater")
+        if (collision.gameObject.name == "FishDestroyer" || collision.gameObject.name == "DeadZone")
         {
             Destroy(gameObject);
         }
-       
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "NavMeshWater" || collision.gameObject.name == "DeadZone")
+        {
+            Destroy(gameObject);
+        }
     }
 }
