@@ -20,6 +20,7 @@ public class GlobalSpawnBlocks : MonoBehaviour
     public int percent = 10;
 
     private bool isGenerated = false;
+    public bool rebakeNavMesh = false;
 
     public void AddCube(IceBlockObject obj)
     {
@@ -94,6 +95,12 @@ public class GlobalSpawnBlocks : MonoBehaviour
             if (updateCount >= updateTarget)
             {
                 generateBlocks();
+                if (rebakeNavMesh)
+                {
+                    GameObject navMeshBaker = GameObject.Find("NavMeshBaker");
+                    Baker baker = navMeshBaker.GetComponent<Baker>();
+                    baker.Bake();
+                }
                 updateCount = 0;
                 return;
             }

@@ -6,12 +6,13 @@ using UnityEngine.AI;
 
 public class Baker : MonoBehaviour
 {
+    public bool timerEnable = true;
     public float timef;
     // Start is called before the first frame update
 
     UnityEngine.AI.NavMeshSurface nav;
     // Use this for initialization
-    void Bake()
+    public void Bake()
     {
         nav.BuildNavMesh();
     }
@@ -29,7 +30,11 @@ public class Baker : MonoBehaviour
     {
         nav = GetComponent<UnityEngine.AI.NavMeshSurface>();
         SetOptimization();
-        InvokeRepeating("Bake", 0, timef);
+        Bake();
+        if (timerEnable)
+        {
+            InvokeRepeating("Bake", 0, timef);
+        }
     }
 
     
