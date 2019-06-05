@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: -1007606938927626603}
   - component: {fileID: -4161186895318340401}
   - component: {fileID: 2278528971974749206}
+  - component: {fileID: 5031996158982402365}
   m_Layer: 0
   m_Name: FixedPivotPlayer
   m_TagString: Untagged
@@ -345,9 +346,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 22
+  speed: 11
   variableJoystick: {fileID: 0}
   rb: {fileID: -4161186895318340401}
+  maxSlopeAngle: 10
+  maxVelocitySpeed: 10
 --- !u!65 &7859879203822961614
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -357,10 +360,10 @@ BoxCollider:
   m_GameObject: {fileID: 3725615526554497731}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.2411318, z: 1}
-  m_Center: {x: 0, y: -0.081560254, z: 0}
+  m_Size: {x: 1, y: 2.2411318, z: 0.6027141}
+  m_Center: {x: 0, y: -0.081560254, z: -0.00808838}
 --- !u!114 &-1007606938927626603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,6 +407,20 @@ MonoBehaviour:
   name: snowman
   price: 0
   state: 2
+--- !u!136 &5031996158982402365
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3725615526554497731}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5003063
+  m_Height: 2.1990867
+  m_Direction: 1
+  m_Center: {x: 0.0063458085, y: -0.09694672, z: 0.054748237}
 --- !u!1 &3959563729673895689
 GameObject:
   m_ObjectHideFlags: 0

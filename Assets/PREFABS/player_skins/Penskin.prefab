@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 5642220221617167500}
   - component: {fileID: 8407941110847962065}
   - component: {fileID: 1755693852596350844}
+  - component: {fileID: 5890029321874432538}
   m_Layer: 0
   m_Name: Penskin
   m_TagString: Untagged
@@ -663,9 +664,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 22
+  speed: 11
   variableJoystick: {fileID: 0}
   rb: {fileID: 6698761867405010307}
+  maxSlopeAngle: 10
+  maxVelocitySpeed: 10
 --- !u!54 &6698761867405010307
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -703,7 +706,7 @@ BoxCollider:
   m_GameObject: {fileID: 6152860235306622982}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 2.225899, z: 1}
   m_Center: {x: 0, y: -0.05478418, z: 0}
@@ -722,6 +725,20 @@ MonoBehaviour:
   name: penskin
   price: 200
   state: 1
+--- !u!136 &5890029321874432538
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6152860235306622982}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5003063
+  m_Height: 2.1990867
+  m_Direction: 1
+  m_Center: {x: 0.0063458085, y: -0.09694672, z: 0.054748237}
 --- !u!1 &6473534741983179172
 GameObject:
   m_ObjectHideFlags: 0

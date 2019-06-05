@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 6867114898546279282}
   - component: {fileID: 4920086672737107474}
   - component: {fileID: -7903744769052869888}
+  - component: {fileID: -7277470033523622986}
   m_Layer: 0
   m_Name: PlayerGirl
   m_TagString: Untagged
@@ -437,9 +438,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a37d705c8e9115e439ec799186182634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 22
+  speed: 11
   variableJoystick: {fileID: 0}
   rb: {fileID: 6867114898546279282}
+  maxSlopeAngle: 10
+  maxVelocitySpeed: 10
 --- !u!114 &-2109608279365902281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -477,7 +480,7 @@ BoxCollider:
   m_GameObject: {fileID: 4851450902250893814}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 2.2205768, z: 1}
   m_Center: {x: 0, y: -0.088825464, z: 0}
@@ -496,6 +499,20 @@ MonoBehaviour:
   name: snowwoman
   price: 100
   state: 1
+--- !u!136 &-7277470033523622986
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851450902250893814}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5003063
+  m_Height: 2.1990867
+  m_Direction: 1
+  m_Center: {x: 0.0063458085, y: -0.09694672, z: 0.054748237}
 --- !u!1 &4999305181970781206
 GameObject:
   m_ObjectHideFlags: 0
