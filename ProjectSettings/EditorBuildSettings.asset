@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scene/FinalGameScene.unity
     guid: 1d21f4584f667944db516e42605479a5
   - enabled: 0
-    path: Assets/Scene/ForMerge.unity
+    path: Assets/Scene/E3_2019_preview.unity
     guid: 03176d64e9836b1478d9b563b853e58d
   m_configObjects: {}
