@@ -36,3 +36,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
+Assets/Scene/FinalGameScene.unity
+ProjectSettings/EditorBuildSettings.asset
