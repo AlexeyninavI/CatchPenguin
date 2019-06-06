@@ -31,14 +31,16 @@ public class Shop : UIScreen
         Text[] texts = GetComponentsInChildren<Text>();
         foreach (Text text in texts)
         {
-            if(text.name == "TitleText")
+            if (text.name == "TitleText")
             {
                 DataManager dm = FindObjectOfType<DataManager>();
-                if (dm.language == "rus") {
+                if (dm.language == "rus")
+                {
                     text.text = "магазин";
                     break;
                 }
-                if (dm.language == "eng") {
+                if (dm.language == "eng")
+                {
                     text.text = "shop";
                     break;
                 }
@@ -54,22 +56,30 @@ public class Shop : UIScreen
         if (dm == null)
             Debug.Log("dm is null");
         dm.Save();
-        sm.currentCharacter.Hide();
+        sm.HideCharacter();
         Hide();
         UIHome.instance.ShowMenu();
     }
     public void OnChooseCharacterBtn()
     {
-        switch (sm.ValueChooseCharacterBtn()) {
-            case ValueChooseCharacterBtn.Buy: {
+        switch (sm.ValueChooseCharacterBtn())
+        {
+            case ValueChooseCharacterBtn.Buy:
+                {
                     sm.BuyCharacter();
                     break;
                 }
-            case ValueChooseCharacterBtn.Select: {
+            case ValueChooseCharacterBtn.Select:
+                {
                     sm.SelectCharacter();
                     break;
                 }
         }
+
+        // Нужно, чтобы обновить данные о персонаже
+        sm.HideCharacter();
+        sm.ShowCharacter();
+
         UpdateInfoAboutCurrentCharacter();
     }
     public void OnArrowLeftBtn()
@@ -90,23 +100,28 @@ public class Shop : UIScreen
 
         UpdateInfoAboutCurrentCharacter();
     }
-    public void UpdateInfoAboutCurrentCharacter() {
+    public void UpdateInfoAboutCurrentCharacter()
+    {
         DataManager dm = FindObjectOfType<DataManager>();
         Text[] texts = GetComponentsInChildren<Text>();
         Text chooseCharacterText = null;
         Text nameCharacterText = null;
         Text countFishText = null;
 
-        foreach (Text text in texts) {
-            if(text.name == "NameCharacterText") {
+        foreach (Text text in texts)
+        {
+            if (text.name == "NameCharacterText")
+            {
                 nameCharacterText = text;
                 continue;
             }
-            if(text.name == "ChooseCharacterText") {
+            if (text.name == "ChooseCharacterText")
+            {
                 chooseCharacterText = text;
                 continue;
             }
-            if (text.name == "CountFishText") {
+            if (text.name == "CountFishText")
+            {
                 countFishText = text;
                 continue;
             }
@@ -114,8 +129,10 @@ public class Shop : UIScreen
 
         Button[] btns = GetComponentsInChildren<Button>();
         Button chooseCharacterBtn = null;
-        foreach (Button btn in btns) {
-            if (btn.name == "ChooseCharacterBtn") {
+        foreach (Button btn in btns)
+        {
+            if (btn.name == "ChooseCharacterBtn")
+            {
                 chooseCharacterBtn = btn;
             }
         }
@@ -123,43 +140,56 @@ public class Shop : UIScreen
         nameCharacterText.text = sm.currentCharacter.name;
         countFishText.text = "" + dm.fish;
 
-        switch (sm.ValueChooseCharacterBtn()) {
-            case ValueChooseCharacterBtn.Buy: {
-                    if(dm.language == "rus") {
+        switch (sm.ValueChooseCharacterBtn())
+        {
+            case ValueChooseCharacterBtn.Buy:
+                {
+                    if (dm.language == "rus")
+                    {
                         chooseCharacterText.text = "купить " + sm.currentCharacter.price;
                     }
-                    if (dm.language == "eng") {
+                    if (dm.language == "eng")
+                    {
                         chooseCharacterText.text = "buy " + sm.currentCharacter.price;
                     }
                     chooseCharacterBtn.interactable = true;
                     break;
                 }
-            case ValueChooseCharacterBtn.NotAvailable: {
-                if (dm.language == "rus") {
-                    chooseCharacterText.text = "купить " + sm.currentCharacter.price;
-                }
-                if (dm.language == "eng") {
-                    chooseCharacterText.text = "buy " + sm.currentCharacter.price;
-                }
+            case ValueChooseCharacterBtn.NotAvailable:
+                {
+                    if (dm.language == "rus")
+                    {
+                        chooseCharacterText.text = "купить " + sm.currentCharacter.price;
+                    }
+                    if (dm.language == "eng")
+                    {
+                        chooseCharacterText.text = "buy " + sm.currentCharacter.price;
+                    }
 
-                chooseCharacterBtn.interactable = false;
-                break;
-            }
-            case ValueChooseCharacterBtn.Select: {
-                    if(dm.language == "rus") {
+                    chooseCharacterBtn.interactable = false;
+                    break;
+                }
+            case ValueChooseCharacterBtn.Select:
+                {
+                    if (dm.language == "rus")
+                    {
                         chooseCharacterText.text = "выбрать";
                     }
-                    if (dm.language == "eng") {
+                    if (dm.language == "eng")
+                    {
                         chooseCharacterText.text = "select";
                     }
                     chooseCharacterBtn.interactable = true;
                     break;
                 }
-            case ValueChooseCharacterBtn.Selected: {
-                    if (dm.language == "rus") {
+            case ValueChooseCharacterBtn.Selected:
+                {
+                    if (dm.language == "rus")
+                    {
                         chooseCharacterText.text = "выбран";
                     }
-                    if (dm.language == "eng") {
+                    if (dm.language == "eng")
+                    {
                         chooseCharacterText.text = "selected";
                     }
                     chooseCharacterBtn.interactable = false;
