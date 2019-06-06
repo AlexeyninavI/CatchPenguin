@@ -8,8 +8,6 @@ public class JoystickPlayerExample : MonoBehaviour
     public VariableJoystick variableJoystick;
     public Rigidbody rb;
     private Animator anim;
-    private bool grounded = false;
-    public int maxSlopeAngle = 10;
 
     public void Start()
     {
@@ -19,47 +17,19 @@ public class JoystickPlayerExample : MonoBehaviour
         {
             anim = GetComponent<Animator>();
         }
-        variableJoystick = FindObjectOfType<VariableJoystick>();
-    }
 
-    // BeYkeRYkt add start: fixes ID 004
-    void OnCollisionStay(Collision collision)
-    {
-        foreach (ContactPoint contactPoint in collision.contacts)
-        {
-            Debug.DrawRay(contactPoint.point, contactPoint.normal * 10, Color.white); // DEBUG
-            if (Vector3.Angle(Vector3.up, contactPoint.normal) < maxSlopeAngle)
-            {
-                grounded = true;
-            }
-        }
     }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (grounded)
-        {
-            grounded = false;
-        }
-    }
-    // BeYkeRYkt add end: fixes ID 004
 
     private Vector3 lookDir;
     private Vector3 oldLookDir;
-    public float maxVelocitySpeed = 10f;
 
     public void FixedUpdate()
     {
         if (variableJoystick.Vertical != 0f || variableJoystick.Horizontal != 0f)
         {
             Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
-            if (grounded)
-            {
-                if (rb.velocity.magnitude < maxVelocitySpeed)
-                {
-                    rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
-                }
-            }
+            rb.AddForce(direction * speed * Time.fixedDeltaTime, ForceMode.VelocityChange);
+
             Quaternion rotation = Quaternion.LookRotation(direction);
             transform.rotation = rotation;
             oldLookDir = direction;
@@ -74,12 +44,11 @@ public class JoystickPlayerExample : MonoBehaviour
     void Animating()
     {
         // Create a boolean that is true if either of the input axes is non-zero.
-        float speed = rb.velocity.magnitude;
-        bool walking = (speed != 0) && variableJoystick.Horizontal != 0f || variableJoystick.Vertical != 0f;
-        float defaultAnimationSpeed = 1.2f;
+        bool walking = variableJoystick.Horizontal != 0f || variableJoystick.Vertical != 0f;
+        float defaultAnimationSpeed = 1.0f;
         if (walking)
         {
-            float speedAnim = Math.Abs(defaultAnimationSpeed * variableJoystick.Vertical + defaultAnimationSpeed * variableJoystick.Horizontal) * speed;
+            float speedAnim = Math.Abs(defaultAnimationSpeed * variableJoystick.Vertical + defaultAnimationSpeed * variableJoystick.Horizontal);
             if (speedAnim > defaultAnimationSpeed)
             {
                 speedAnim = defaultAnimationSpeed;

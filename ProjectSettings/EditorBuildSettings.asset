@@ -6,22 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-<<<<<<< HEAD
-=======
-    path: Assets/Scene/Audio.unity
-    guid: 688e833f169a8e04f874c445bed2bb53
-  - enabled: 1
->>>>>>> ca72be845c0cce26f640a7a28787c7eb1f7fcbf2
     path: Assets/AssetForInterface/Scenes/MenuS.unity
     guid: a25cd656d9ac736469ebe9a13b069c93
   - enabled: 1
     path: Assets/Scene/FinalGameScene.unity
     guid: 1d21f4584f667944db516e42605479a5
-<<<<<<< HEAD
   - enabled: 1
-=======
-  - enabled: 0
->>>>>>> ca72be845c0cce26f640a7a28787c7eb1f7fcbf2
     path: Assets/Scene/ForMerge.unity
     guid: 03176d64e9836b1478d9b563b853e58d
   - enabled: 1

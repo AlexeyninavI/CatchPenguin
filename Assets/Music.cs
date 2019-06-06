@@ -11,7 +11,7 @@ public class Music : MonoBehaviour
         DontDestroyOnLoad(transform.gameObject);
         audioSource = GetComponent<AudioSource>();
         SceneManager.UnloadSceneAsync("Audio");
-        SceneManager.LoadScene("MenuS");
+        SceneManager.LoadScene("mENU");
     }
 
     public void PlayMusic()
