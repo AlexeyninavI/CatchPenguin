@@ -34,13 +34,13 @@ public class collison : MonoBehaviour
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
-            //scontroller.RewardUp();
+            scontroller.ScaleUp(20); // При взаимодействии с пингвином увериличавется счетчик на 20
         }
-        else if (collision.gameObject.name == "FishBullet(Clone)")
+        else if (collision.gameObject.name == "fishBullet(Clone)")
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
-            scontroller.RewardUp(); // При взаимодействии с пингвинов увеличивается счетчик рыбы на 1
+            scontroller.RewardUp(); // При взаимодействии с рыбой увеличивается кол-во игровой волюты на 1
         }
         else if (collision.gameObject.name == "DeadZone")
         {
