@@ -52,7 +52,24 @@ public class CharactersManager : MonoBehaviour
             return null;
         }
         //return new Character(characters[i]);
-        return characters[i];
+        Character character = Instantiate(characters[i]);
+        if (character.GetComponentInChildren<Rigidbody>() && character.GetComponentInChildren<JoystickPlayerExample>())
+        {
+            character.GetComponentInChildren<Rigidbody>().useGravity = false;
+            character.GetComponentInChildren<JoystickPlayerExample>().enabled = false;
+        }
+        Debug.Log("Character was get!");
+        return character;
+    }
+    public Character GetSelectedCharacter()
+    {
+        Character character = PlayableCharacter();
+        if (character.GetComponentInChildren<Rigidbody>() && character.GetComponentInChildren<JoystickPlayerExample>())
+        {
+            character.GetComponentInChildren<Rigidbody>().useGravity = false;
+            character.GetComponentInChildren<JoystickPlayerExample>().enabled = false;
+        }
+        return character;
     }
     public List<Character> ListCharacters()
     {

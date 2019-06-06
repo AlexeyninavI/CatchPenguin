@@ -84,7 +84,7 @@ public class Play : UIScreen
         pauseBtn.SetActive(true);
         
         sc.Restart();
-        SceneManager.LoadScene("mENU");
+        SceneManager.LoadScene("MenuS");
     }
     public void OnContinueBtn() {
         Debug.Log("OnContinueBtn");

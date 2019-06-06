@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class Menu : UIScreen
 {
     public GameObject LanguagePanel;
-    public GameObject Cursor;
 
     protected DataManager dm;
     protected CharactersManager cm;
@@ -18,7 +17,8 @@ public class Menu : UIScreen
     {
         base.Show();
         LanguagePanel.SetActive(false);
-        Cursor.GetComponent<Animation>().Play();
+        Time.timeScale = 1;
+        Debug.Log("Play animation cursor!");
         Initialize();
 
         Text[] texts = GetComponentsInChildren<Text>();
@@ -28,16 +28,15 @@ public class Menu : UIScreen
                 text.text = "" + dm.record;
         }
 
-        if(dm.language == "rus")
+        if (dm.language == "rus")
         {
             ChangeRusLanguage();
         }
-        if(dm.language == "eng")
+        if (dm.language == "eng")
         {
             ChangeEngLanguage();
         }
 
-        //ShowPlaceholder();
     }
     public override void Hide()
     {
@@ -45,22 +44,26 @@ public class Menu : UIScreen
         HidePlaceholder();
     }
 
-    public void OnLanguageBtn() {
+    public void OnLanguageBtn()
+    {
         LanguagePanel.SetActive(!LanguagePanel.activeSelf);
     }
 
-    public void OnRusBtn() {
+    public void OnRusBtn()
+    {
         dm.language = "rus";
         ChangeRusLanguage();
     }
-    public void OnEngBtn() {
+    public void OnEngBtn()
+    {
         dm.language = "eng";
         ChangeEngLanguage();
     }
-    public void OnArrowDownBtn() {
+    public void OnArrowDownBtn()
+    {
         LanguagePanel.SetActive(!LanguagePanel.activeSelf);
     }
-        
+
     public void OnShopBtn()
     {
         UIHome.instance.ShowShop();
@@ -72,9 +75,10 @@ public class Menu : UIScreen
         UIHome.instance.ShowAbout();
         Debug.Log("Show about!");
     }
-    public void TapOnScreenPanel() {
+    public void TapOnScreenPanel()
+    {
         //SceneManager.LoadSceneAsync("SampleScene");
-        SceneManager.LoadSceneAsync("E3_2019_preview");
+        SceneManager.LoadSceneAsync("FinalGameScene");
         Debug.Log("Game start!");
     }
     public void Initialize()
@@ -92,10 +96,10 @@ public class Menu : UIScreen
         RectTransform[] placeholderPanels = GetComponentsInChildren<RectTransform>();
         Debug.Log("placeholder " + placeholder);
         Debug.Log("placeholder panel " + placeholderPanels);
-        foreach(RectTransform placeholderPanel in placeholderPanels)
+        foreach (RectTransform placeholderPanel in placeholderPanels)
         {
             Debug.Log(placeholderPanel.name);
-            if(placeholderPanel.name == "Placeholder")
+            if (placeholderPanel.name == "Placeholder")
             {
                 placeholder.gameObject.transform.localScale = Vector3.one * 0.06f;
                 placeholder.gameObject.transform.position = placeholderPanel.transform.position;
@@ -103,7 +107,7 @@ public class Menu : UIScreen
                 break;
             }
         }
-       
+
     }
     public void HidePlaceholder()
     {
@@ -117,24 +121,30 @@ public class Menu : UIScreen
 
         foreach (Text text in texts)
         {
-            if (text.name == "TitlePanelBannerText") {
+            if (text.name == "TitlePanelBannerText")
+            {
                 text.text = "здесь могла бы быть ваша реклама"; continue;
             }
-            if (text.name == "TapScreenPanelTitleRecordText") { 
+            if (text.name == "TapScreenPanelTitleRecordText")
+            {
                 text.text = "рекорд"; continue;
             }
-            if (text.name == "TapScreenPanelText") { 
+            if (text.name == "TapScreenPanelText")
+            {
                 text.text = "нажмите на экран, чтобы начать играть"; continue;
             }
-            if (text.name == "LanguageBtnText") { 
+            if (text.name == "LanguageBtnText")
+            {
                 text.text = "язык"; continue;
             }
-            if (text.name == "ShopBtnText") { 
+            if (text.name == "ShopBtnText")
+            {
                 text.text = "магазин"; continue;
             }
-            if (text.name == "AboutBtnText") { 
+            if (text.name == "AboutBtnText")
+            {
                 text.text = "информация"; continue;
-            }  
+            }
         }
     }
     public void ChangeEngLanguage()
@@ -144,24 +154,30 @@ public class Menu : UIScreen
 
         foreach (Text text in texts)
         {
-            if (text.name == "TitlePanelBannerText") {
+            if (text.name == "TitlePanelBannerText")
+            {
                 text.text = "your advertisement could be here"; continue;
             }
-            if (text.name == "TapScreenPanelTitleRecordText") { 
+            if (text.name == "TapScreenPanelTitleRecordText")
+            {
                 text.text = "record"; continue;
             }
-            if (text.name == "TapScreenPanelText") { 
+            if (text.name == "TapScreenPanelText")
+            {
                 text.text = "tap the screen to start play"; continue;
             }
-            if (text.name == "LanguageBtnText") { 
+            if (text.name == "LanguageBtnText")
+            {
                 text.text = "language"; continue;
             }
-            if (text.name == "ShopBtnText") { 
+            if (text.name == "ShopBtnText")
+            {
                 text.text = "shop"; continue;
             }
-            if (text.name == "AboutBtnText") { 
+            if (text.name == "AboutBtnText")
+            {
                 text.text = "about"; continue;
-            }  
+            }
         }
     }
 }
