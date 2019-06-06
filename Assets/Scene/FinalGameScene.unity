@@ -1170,7 +1170,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.8, y: -5.6}
+  m_AnchoredPosition: {x: 2.8, y: -4}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &295408099 stripped
@@ -1483,13 +1483,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534669902}
-  m_LocalRotation: {x: 0.44619772, y: 0, z: 0, w: 0.89493436}
+  m_LocalRotation: {x: 0.45399043, y: 0, z: 0, w: 0.8910066}
   m_LocalPosition: {x: 7.31, y: 17.58, z: -12.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 53, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 54, y: 0, z: 0}
 --- !u!1 &567997900
 GameObject:
   m_ObjectHideFlags: 0
@@ -2367,10 +2367,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2103201245}
     m_Modifications:
-    - target: {fileID: 100002, guid: 823c30762a656d241845db5c9986f069, type: 3}
-      propertyPath: m_Name
-      value: Ice 1
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 823c30762a656d241845db5c9986f069, type: 3}
       propertyPath: m_LocalPosition.x
       value: -41.30058
@@ -2414,6 +2410,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 823c30762a656d241845db5c9986f069, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 823c30762a656d241845db5c9986f069, type: 3}
+      propertyPath: m_Name
+      value: Ice 1
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 823c30762a656d241845db5c9986f069, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2581,10 +2581,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2103201245}
     m_Modifications:
-    - target: {fileID: 100002, guid: 823c30762a656d241845db5c9986f069, type: 3}
-      propertyPath: m_Name
-      value: Ice 1 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 823c30762a656d241845db5c9986f069, type: 3}
       propertyPath: m_LocalPosition.x
       value: -57.36
@@ -2628,6 +2624,10 @@ PrefabInstance:
     - target: {fileID: 400002, guid: 823c30762a656d241845db5c9986f069, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 823c30762a656d241845db5c9986f069, type: 3}
+      propertyPath: m_Name
+      value: Ice 1 (1)
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 823c30762a656d241845db5c9986f069, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5259,7 +5259,7 @@ PrefabInstance:
     - target: {fileID: 6560095927192851513, guid: 71d4693f6c073194ab21a9a79e512b98,
         type: 3}
       propertyPath: force
-      value: 13
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6560095927192851513, guid: 71d4693f6c073194ab21a9a79e512b98,
         type: 3}
