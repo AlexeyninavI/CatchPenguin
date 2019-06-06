@@ -32,6 +32,10 @@ public class JoystickPlayerExample : MonoBehaviour
             {
                 grounded = true;
             }
+            else
+            {
+                rb.AddForce(collision.impulse, ForceMode.Impulse);
+            }
         }
     }
 
