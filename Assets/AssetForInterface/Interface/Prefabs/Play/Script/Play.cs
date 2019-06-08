@@ -28,6 +28,8 @@ public class Play : UIScreen
             }
             if (text.name == "RecordText")
                 text.text = "" + sc.Record;
+            if (text.name == "FishText")
+                text.text = "" + sc.Reward;
         } 
     }
 
