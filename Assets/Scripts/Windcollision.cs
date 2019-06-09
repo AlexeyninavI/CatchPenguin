@@ -38,7 +38,7 @@ public class Windcollision : MonoBehaviour
         {
             hoverForce = force;
             tick = timeRemaining;
-            napravlen = Random.Range(1, 4);
+            napravlen = Random.Range(1, 5);
             wind = true;
             tickDisplay = timeDisplayVisible;
             messageText.text = "Ветер дует";
@@ -96,5 +96,12 @@ public class Windcollision : MonoBehaviour
                 other.attachedRigidbody.AddForce(vector * hoverForce);
             }
         }
+    }
+    // нужно для работы ветрового указателя
+    public int GetDirection()
+    {
+        if (wind)
+            return napravlen;
+        else return 0;
     }
 }
