@@ -12,10 +12,6 @@ public class GlobalSpawnBlocks : MonoBehaviour
     // default spawn block
     public int defaultSpawnBlock = 6;
 
-    // Update
-    private int updateCount = 0;
-    private int updateTarget = 60 * 4; // 60 fps
-
     // Percent active block
     public int percent = 10;
 
@@ -36,7 +32,7 @@ public class GlobalSpawnBlocks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("generateBlocks", 3, 3);
+        InvokeRepeating("tick", 3, 3);
         isGenerated = true;
     }
 
@@ -44,34 +40,34 @@ public class GlobalSpawnBlocks : MonoBehaviour
     {
         //Сначала заспавните нужные блоки
         int i = Random.Range(0, blocks.Count);
-           // if (i == defaultSpawnBlock)
-          //  {
-           //     continue;
-          //  }
-            IceBlockObject targetBlock = blocks[i];
-            int r = Random.Range(0, 101);
+        // if (i == defaultSpawnBlock)
+        //  {
+        //     continue;
+        //  }
+        IceBlockObject targetBlock = blocks[i];
+        int r = Random.Range(0, 101);
 
-            // loh
-            if (r >= percent)
+        // loh
+        if (r >= percent)
+        {
+            List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
+            if (list.Count > 1)
             {
-                List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
-                if (list.Count > 1)
-                {
-                    targetBlock.setSwimming();
-                    //targetBlock.unityObject.SetActive(false);
-                }
-                
+                targetBlock.setSwimming();
+                //targetBlock.unityObject.SetActive(false);
             }
-            else
+
+        }
+        else
+        {
+
+            List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
             {
-                
-                List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
-                {
-                    targetBlock.setUp();
-                  // targetBlock.unityObject.SetActive(true);
-                }
+                targetBlock.setUp();
+                // targetBlock.unityObject.SetActive(true);
             }
-        
+        }
+
 
         // Проверьте одиночные блоки
         for (int j = 0; i < blocks.Count; i++)
@@ -80,29 +76,22 @@ public class GlobalSpawnBlocks : MonoBehaviour
             List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
             if (list.Count == 0)
             {
-                targetBlock.checkerSwim(false);
-               //targetBlock.unityObject.SetActive(false);
+                //targetBlock.checkerSwim(false);
+                //targetBlock.unityObject.SetActive(false);
             }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void tick()
     {
         if (Time.timeScale == 1) // Если игра не на паузе, то делай то, что делал...
         {
-            updateCount++;
-            if (updateCount >= updateTarget)
+            generateBlocks();
+            if (rebakeNavMesh)
             {
-                generateBlocks();
-                if (rebakeNavMesh)
-                {
-                    GameObject navMeshBaker = GameObject.Find("NavMeshBaker");
-                    Baker baker = navMeshBaker.GetComponent<Baker>();
-                    baker.Bake();
-                }
-                updateCount = 0;
-                return;
+                GameObject navMeshBaker = GameObject.Find("NavMeshBaker");
+                Baker baker = navMeshBaker.GetComponent<Baker>();
+                baker.Bake();
             }
         }
     }
