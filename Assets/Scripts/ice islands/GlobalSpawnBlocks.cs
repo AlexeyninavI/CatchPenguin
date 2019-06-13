@@ -1,4 +1,4 @@
-
+﻿
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,14 +9,13 @@ public class GlobalSpawnBlocks : MonoBehaviour
     public List<IceBlockObject> blocks = new List<IceBlockObject>();
     private static int N = 4;
 
-    // default spawn block
-    public int defaultSpawnBlock = 6;
-
     // Percent active block
     public int percent = 10;
 
     private bool isGenerated = false;
     public bool rebakeNavMesh = false;
+
+    public int repeatTime = 1;
 
     public void AddCube(IceBlockObject obj)
     {
@@ -32,7 +31,7 @@ public class GlobalSpawnBlocks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        InvokeRepeating("tick", 3, 3);
+        InvokeRepeating("tick", repeatTime, repeatTime);
         isGenerated = true;
     }
 

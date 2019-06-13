@@ -1,12 +1,12 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class collison : MonoBehaviour
 {
     private Canvas joystick;
-   // public TextMesh text;
-  //  int count = 1;
+    // public TextMesh text;
+    //  int count = 1;
 
     void OnTriggerEnter(Collider other)
     {
@@ -20,7 +20,6 @@ public class collison : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-
         //if(collision.gameObject.name == "PenguinV2")
         // {
         ScoreController scontroller = FindObjectOfType<ScoreController>(); // Получаем ScoreController
@@ -42,13 +41,13 @@ public class collison : MonoBehaviour
                                                                        **/
         if (collision.gameObject.tag == "Penguin")
         {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             Destroy(collision.gameObject);
             scontroller.ScaleUp(20); // При взаимодействии с пингвином увериличавется счетчик на 20
         }
         else if (collision.gameObject.name == "fishBullet(Clone)")
         {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             Destroy(collision.gameObject);
             scontroller.RewardUp(); // При взаимодействии с рыбой увеличивается кол-во игровой волюты на 1
         }
