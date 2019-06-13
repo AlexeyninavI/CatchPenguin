@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 5031996158982402365}
   m_Layer: 0
   m_Name: FixedPivotPlayer
-  m_TagString: Untagged
+  m_TagString: PlayerSkin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
