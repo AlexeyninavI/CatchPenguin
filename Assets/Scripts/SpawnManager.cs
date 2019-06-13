@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour
     {
         
         //Instantiate(PenguinV2, Spawn(Random.Range(minY, maxY), Random.Range(minZ, maxZ), Random.Range(minX, maxX)), Quaternion.identity)
-        int rolls = Random.Range(0, 1);
+        int rolls = Random.Range(0, Zone.Length - 1);
         
         
         script = this.PenguinV2.gameObject.GetComponent<PengMovement>();
