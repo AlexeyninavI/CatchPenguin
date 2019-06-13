@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,6 +7,16 @@ public class collison : MonoBehaviour
     private Canvas joystick;
    // public TextMesh text;
   //  int count = 1;
+
+    void OnTriggerEnter(Collider other)
+    {
+        // apply gravity x3 for water
+        if (other.gameObject.name == "TextureWater")
+        {
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.AddForce(Vector3.down * 3.0f, ForceMode.VelocityChange);
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
