@@ -6656,6 +6656,16 @@ PrefabInstance:
       propertyPath: rebakeNavMesh
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7923776188888104889, guid: 7dbe225bfb6ba17468af14317dc6f494,
+        type: 3}
+      propertyPath: percent
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7923776188888104889, guid: 7dbe225bfb6ba17468af14317dc6f494,
+        type: 3}
+      propertyPath: repeatTime
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3432719457983910586, guid: 7dbe225bfb6ba17468af14317dc6f494,
         type: 3}
       propertyPath: m_LocalRotation.y
