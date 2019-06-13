@@ -33,7 +33,7 @@ public class Baker : MonoBehaviour
     void Start()
     {
         nav = GetComponent<UnityEngine.AI.NavMeshSurface>();
-        SetOptimization();
+        //SetOptimization();
         Bake();
         if (timerEnable)
         {
