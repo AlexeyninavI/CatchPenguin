@@ -7,6 +7,7 @@ public class Windcollision : MonoBehaviour
 {
     public Text messageText;
     public float force;
+    public float standForce = 0.3f;
     public float timeRemaining = 5f;
     private float tick = 0;
     bool wind = false;
@@ -28,7 +29,7 @@ public class Windcollision : MonoBehaviour
 
     void Update()
     {
-        if(tickDisplay == 0)
+        if (tickDisplay == 0)
         {
             tickDisplay = -1; // disable
             messageText.text = "";
@@ -93,7 +94,20 @@ public class Windcollision : MonoBehaviour
             }
             if (other.attachedRigidbody)
             {
-                other.attachedRigidbody.AddForce(vector * hoverForce);
+                GameObject player = GameObject.FindGameObjectWithTag("PlayerSkin");
+                JoystickPlayerExample jpe = player.GetComponent<JoystickPlayerExample>();
+                //TODO: make a separate physics file
+                if (jpe.isGrounded())
+                {
+                    if (jpe.isJoystickMoved())
+                    {
+                        other.attachedRigidbody.AddForce(vector * hoverForce);
+                    }
+                    else
+                    {
+                        other.attachedRigidbody.AddForce(vector * standForce, ForceMode.VelocityChange);
+                    }
+                }
             }
         }
     }
