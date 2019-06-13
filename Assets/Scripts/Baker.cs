@@ -12,11 +12,15 @@ public class Baker : MonoBehaviour
 
     UnityEngine.AI.NavMeshSurface nav;
     // Use this for initialization
-    public void Bake()
+    private void Bake()
     {
         nav.BuildNavMesh();
     }
 
+    public void updateNavMesh()
+    {
+        nav.UpdateNavMesh(nav.navMeshData);
+    }
 
     private void SetOptimization()
     {
@@ -33,7 +37,7 @@ public class Baker : MonoBehaviour
         Bake();
         if (timerEnable)
         {
-            InvokeRepeating("Bake", 0, timef);
+            InvokeRepeating("UpdateNavMesh", 0, timef);
         }
     }
 

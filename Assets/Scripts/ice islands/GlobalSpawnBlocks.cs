@@ -1,4 +1,4 @@
-﻿
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -91,7 +91,7 @@ public class GlobalSpawnBlocks : MonoBehaviour
             {
                 GameObject navMeshBaker = GameObject.Find("NavMeshBaker");
                 Baker baker = navMeshBaker.GetComponent<Baker>();
-                baker.Bake();
+                baker.updateNavMesh();
             }
         }
     }
