@@ -4,16 +4,6 @@ using UnityEngine;
 
 public class PengCollision : MonoBehaviour
 {
-
-
-   private  GameObject target;
-    PengMovement penguin;
-    void Start()
-    {
-        penguin = GetComponent<PengMovement>();
-        string kavo = penguin.target.name;
-        target = GameObject.Find(kavo);
-    }
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log(collision.gameObject.name);
@@ -21,7 +11,6 @@ public class PengCollision : MonoBehaviour
        
         if (collision.gameObject.name == "Target East")
         {
-            Debug.Log("CHI DA");
             Destroy(gameObject);
         }
         else if (collision.gameObject.name == "fishBullet(Clone)")
