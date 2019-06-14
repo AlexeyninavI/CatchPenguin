@@ -78,8 +78,7 @@ public class Menu : UIScreen
     public void TapOnScreenPanel()
     {
         //SceneManager.LoadSceneAsync("SampleScene");
-        //SceneManager.LoadSceneAsync("FinalGameScene");
-        SceneManager.LoadSceneAsync("E3_2019_preview");
+        SceneManager.LoadSceneAsync("FinalGameScene");
         Debug.Log("Game start!");
     }
     public void Initialize()

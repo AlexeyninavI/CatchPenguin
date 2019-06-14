@@ -30,7 +30,7 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         // Call the Spawn function after a delay of the spawnTime and then continue to call after the same amount of time.
-        Spawn();
+        
         InvokeRepeating("Spawn", spawnTime, spawnTime);
     }
 
@@ -39,7 +39,7 @@ public class SpawnManager : MonoBehaviour
     {
         
         //Instantiate(PenguinV2, Spawn(Random.Range(minY, maxY), Random.Range(minZ, maxZ), Random.Range(minX, maxX)), Quaternion.identity)
-        int rolls = Random.Range(0, Zone.Length - 1);
+        int rolls = Random.Range(0, 1);
         
         
         script = this.PenguinV2.gameObject.GetComponent<PengMovement>();

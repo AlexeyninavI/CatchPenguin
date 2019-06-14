@@ -5,21 +5,12 @@ using UnityEngine;
 public class collison : MonoBehaviour
 {
     private Canvas joystick;
-    // public TextMesh text;
-    //  int count = 1;
-
-    void OnTriggerEnter(Collider other)
-    {
-        // apply gravity x3 for water
-        if (other.gameObject.name == "TextureWater")
-        {
-            Rigidbody rb = GetComponent<Rigidbody>();
-            rb.AddForce(Vector3.down * 3.0f, ForceMode.VelocityChange);
-        }
-    }
+   // public TextMesh text;
+  //  int count = 1;
 
     void OnCollisionEnter(Collision collision)
     {
+
         //if(collision.gameObject.name == "PenguinV2")
         // {
         ScoreController scontroller = FindObjectOfType<ScoreController>(); // Получаем ScoreController
@@ -41,13 +32,13 @@ public class collison : MonoBehaviour
                                                                        **/
         if (collision.gameObject.tag == "Penguin")
         {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
             scontroller.ScaleUp(20); // При взаимодействии с пингвином увериличавется счетчик на 20
         }
         else if (collision.gameObject.name == "fishBullet(Clone)")
         {
-            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
+            Physics.IgnoreCollision(collision.collider, GetComponent<Collider>(), true);
             Destroy(collision.gameObject);
             scontroller.RewardUp(); // При взаимодействии с рыбой увеличивается кол-во игровой волюты на 1
         }

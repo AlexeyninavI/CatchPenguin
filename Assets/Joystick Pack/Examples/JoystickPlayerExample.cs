@@ -10,17 +10,6 @@ public class JoystickPlayerExample : MonoBehaviour
     private Animator anim;
     private bool grounded = false;
     public int maxSlopeAngle = 10;
-    private bool joyMoved = false;
-
-    public bool isGrounded()
-    {
-        return grounded;
-    }
-
-    public bool isJoystickMoved()
-    {
-        return joyMoved;
-    }
 
     public void Start()
     {
@@ -43,10 +32,6 @@ public class JoystickPlayerExample : MonoBehaviour
             {
                 grounded = true;
             }
-            else
-            {
-                rb.AddForce(collision.impulse, ForceMode.Impulse);
-            }
         }
     }
 
@@ -67,7 +52,6 @@ public class JoystickPlayerExample : MonoBehaviour
     {
         if (variableJoystick.Vertical != 0f || variableJoystick.Horizontal != 0f)
         {
-            joyMoved = true;
             Vector3 direction = Vector3.forward * variableJoystick.Vertical + Vector3.right * variableJoystick.Horizontal;
             if (grounded)
             {
@@ -82,7 +66,6 @@ public class JoystickPlayerExample : MonoBehaviour
         }
         else
         {
-            joyMoved = false;
             transform.rotation = Quaternion.LookRotation(oldLookDir);
         }
         Animating();

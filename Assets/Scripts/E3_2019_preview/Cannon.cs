@@ -8,18 +8,16 @@ public class Cannon : MonoBehaviour
     public GameObject muzzle;
     public int percentLaunch = 50;
     public bool randomizePercentLaunch = false;
-    public int maxRandomPercentLaunch = 100; // default 100%
     public float bulletForce = 700f; //this is the bullet speed.  700 is the default
-    public int repeatDelay = 6;
 
     // Start is called before the first frame update
     void Start()
     {
         if (randomizePercentLaunch)
         {
-            percentLaunch = Random.Range(1, maxRandomPercentLaunch + 1);
+            percentLaunch = Random.Range(0, 101);
         }
-        InvokeRepeating("fire", repeatDelay, repeatDelay);
+        InvokeRepeating("fire", 4, 4);
     }
 
     public void fire()
@@ -30,13 +28,12 @@ public class Cannon : MonoBehaviour
             GameObject newBullet = Instantiate(bullet, muzzle.transform.position, muzzle.transform.rotation); // make a new clone at raycast hit position
             Rigidbody rb = newBullet.GetComponent<Rigidbody>();
 
-            float force = Random.Range(bulletForce, bulletForce + 50);
             //make the new bullet go forward by this much force
-            rb.AddForce(muzzle.transform.forward * force);
+            rb.AddForce(muzzle.transform.forward * bulletForce);
 
             if (randomizePercentLaunch)
             {
-                percentLaunch = Random.Range(1, maxRandomPercentLaunch + 1);
+                percentLaunch = Random.Range(0, 101);
             }
         }
     }

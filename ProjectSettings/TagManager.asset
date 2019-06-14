@@ -9,7 +9,6 @@ TagManager:
   - DEAD
   - Penguin
   - Joystick
-  - PlayerSkin
   layers:
   - Default
   - TransparentFX
