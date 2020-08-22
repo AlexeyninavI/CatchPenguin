@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class Windcollision : MonoBehaviour
@@ -12,12 +10,16 @@ public class Windcollision : MonoBehaviour
     private float tick = 0;
     bool wind = false;
     float hoverForce;
-    int napravlen;
+    public int napravlen;
     public Transform bulletPrefab;
+    public float maxVelocitySpeed = 11.0f; // default
 
     // text display
     public int timeDisplayVisible = 2; // 2 seconds
     private int tickDisplay = -1;
+
+    // icon
+    public Image image;
 
     void Start()
     {
@@ -33,6 +35,10 @@ public class Windcollision : MonoBehaviour
         {
             tickDisplay = -1; // disable
             messageText.text = "";
+            // update image
+            var tempColor = image.color;
+            tempColor.a = 0f;
+            image.color = tempColor;
         }
 
         if (tick < 0 && wind == false)
@@ -43,6 +49,51 @@ public class Windcollision : MonoBehaviour
             wind = true;
             tickDisplay = timeDisplayVisible;
             messageText.text = "Ветер дует";
+
+            // update image
+            Vector3 rotationVector = new Vector3(0, 0, 90); // default
+            Vector3 rotationWind = new Vector3(0, 0, 0);
+            switch (napravlen)
+            {
+                case 1: // forward
+                    {
+                        rotationVector = new Vector3(0, 0, 270);
+                        rotationWind = new Vector3(0, 0, 0);
+                        break;
+                    }
+                case 2: //back
+                    {
+                        rotationVector = new Vector3(0, 0, 90);
+                        rotationWind = new Vector3(0, 180, 0);
+                        break;
+                    }
+                case 3:
+                    {
+                        rotationVector = new Vector3(0, 0, 180);
+                        rotationWind = new Vector3(0, 90, 0);
+                        break;
+                    }
+                case 4:
+                    {
+                        rotationVector = new Vector3(0, 0, 0);
+                        rotationWind = new Vector3(0, 270, 0);
+                        break;
+                    }
+            }
+            RectTransform rectTransform = image.GetComponent<RectTransform>();
+            //rectTransform.Rotate(vector);
+            Quaternion rotation = Quaternion.Euler(rotationVector);
+            rectTransform.rotation = rotation;
+            var tempColor = image.color;
+            tempColor.a = 1f;
+            image.color = tempColor;
+
+            // update windzone
+            GameObject wheather = GameObject.Find("Wheather");
+            WindZone zone = wheather.GetComponent<WindZone>();
+            zone.windMain = 2.0f;
+            Quaternion windRotation = Quaternion.Euler(rotationWind);
+            wheather.transform.rotation = windRotation;
         }
         else if (tick < 0 && wind == true)
         {
@@ -51,6 +102,16 @@ public class Windcollision : MonoBehaviour
             wind = false;
             tickDisplay = timeDisplayVisible;
             messageText.text = "Ветер не дует";
+
+            // update image
+            var tempColor = image.color;
+            tempColor.a = 0f;
+            image.color = tempColor;
+
+            // update windzone
+            GameObject wheather = GameObject.Find("Wheather");
+            WindZone zone = wheather.GetComponent<WindZone>();
+            zone.windMain = 0.0f;
         }
     }
 
@@ -90,22 +151,28 @@ public class Windcollision : MonoBehaviour
                         vector = Vector3.left;
                         break;
                     }
-
             }
             if (other.attachedRigidbody)
             {
                 GameObject player = GameObject.FindGameObjectWithTag("PlayerSkin");
-                JoystickPlayerExample jpe = player.GetComponent<JoystickPlayerExample>();
-                //TODO: make a separate physics file
-                if (jpe.isGrounded())
+                if (player != null)
                 {
-                    if (jpe.isJoystickMoved())
+                    Rigidbody rb = player.GetComponent<Rigidbody>();
+                    JoystickPlayerExample jpe = player.GetComponent<JoystickPlayerExample>();
+                    //TODO: make a separate physics file
+                    if (jpe.isGrounded())
                     {
-                        other.attachedRigidbody.AddForce(vector * hoverForce);
-                    }
-                    else
-                    {
-                        other.attachedRigidbody.AddForce(vector * standForce, ForceMode.VelocityChange);
+                        if (jpe.isJoystickMoved())
+                        {
+                            if (rb.velocity.magnitude < maxVelocitySpeed)
+                            {
+                                other.attachedRigidbody.AddForce(vector * hoverForce);
+                            }
+                        }
+                        else
+                        {
+                            other.attachedRigidbody.AddForce(vector * standForce, ForceMode.VelocityChange);
+                        }
                     }
                 }
             }

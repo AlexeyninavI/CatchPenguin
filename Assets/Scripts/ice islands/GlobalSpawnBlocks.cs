@@ -1,30 +1,30 @@
-﻿
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class GlobalSpawnBlocks : MonoBehaviour
 {
     // blocks
     public List<IceBlockObject> blocks = new List<IceBlockObject>();
-    private static int N = 4;
+    public int min_tick_blocks = 0;
+    public int max_tick_blocks = 4;
 
     // Percent active block
-    public int percent = 10;
+    public int percent_down = 10;
 
     private bool isGenerated = false;
     public bool rebakeNavMesh = false;
 
     public int repeatTime = 1;
+    public int recoveryTime = 5;
 
     public void AddCube(IceBlockObject obj)
     {
         blocks.Add(obj);
+        obj.recoveryTime = recoveryTime;
     }
 
     public void RemoveCube(IceBlockObject obj)
     {
-        // TODO: add check block
         blocks.Remove(obj);
     }
 
@@ -37,60 +37,53 @@ public class GlobalSpawnBlocks : MonoBehaviour
 
     public void generateBlocks()
     {
-        //Сначала заспавните нужные блоки
-        int i = Random.Range(0, blocks.Count);
-        // if (i == defaultSpawnBlock)
-        //  {
-        //     continue;
-        //  }
-        IceBlockObject targetBlock = blocks[i];
-        int r = Random.Range(0, 101);
-
-        // loh
-        if (r >= percent)
+        int N = Random.Range(min_tick_blocks, max_tick_blocks);
+        for (int i = 0; i < N; i++)
         {
-            List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
-            if (list.Count > 1)
+            int j = Random.Range(0, blocks.Count);
+            IceBlockObject targetBlock = blocks[j];
+            double r = Random.value;
+            double chance = 1 - (percent_down / 100);
+
+            // loh
+            if (r <= chance)
             {
-                targetBlock.setSwimming();
-                //targetBlock.unityObject.SetActive(false);
+                List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
+                if (list.Count > 1)
+                {
+                    if (!targetBlock.isDown)
+                    {
+                        targetBlock.startDamage = true;
+                    }
+                }
             }
 
-        }
-        else
-        {
 
-            List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
+            // Проверьте одиночные блоки
+            for (int k = 0; k < blocks.Count; k++)
             {
-                targetBlock.setUp();
-                // targetBlock.unityObject.SetActive(true);
-            }
-        }
-
-
-        // Проверьте одиночные блоки
-        for (int j = 0; i < blocks.Count; i++)
-        {
-            targetBlock = blocks[j];
-            List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
-            if (list.Count == 0)
-            {
-                //targetBlock.checkerSwim(false);
-                //targetBlock.unityObject.SetActive(false);
+                targetBlock = blocks[k];
+                List<IceBlockObject> list = GetConnectedBlocksInRadius(targetBlock, 30);
+                if (list.Count == 0)
+                {
+                    //targetBlock.checkerSwim(false);
+                    //targetBlock.unityObject.SetActive(false);
+                }
             }
         }
     }
 
     void tick()
     {
-        if (Time.timeScale == 1) // Если игра не на паузе, то делай то, что делал...
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (!gm.isPaused) // Если игра не на паузе, то делай то, что делал...
         {
             generateBlocks();
             if (rebakeNavMesh)
             {
                 GameObject navMeshBaker = GameObject.Find("NavMeshBaker");
                 Baker baker = navMeshBaker.GetComponent<Baker>();
-                baker.updateNavMesh();
+                baker.UpdateNavMesh();
             }
         }
     }
@@ -103,7 +96,7 @@ public class GlobalSpawnBlocks : MonoBehaviour
             float distanceSqr = (obj.unityObject.transform.position - ibo.unityObject.transform.position).sqrMagnitude;
             if ((distanceSqr > 0) && (distanceSqr < rangeSqr))
             {
-                if (ibo.isSwimming())
+                if (!ibo.isDown)
                 {
                     list.Add(ibo);
                 }

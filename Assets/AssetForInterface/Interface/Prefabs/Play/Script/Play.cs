@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
-public class Play : UIScreen
+
+public class Play : UIScreen, GameStateListener
 {
     public GameObject pausePanel;
     public GameObject lowerBtnPanel;
@@ -12,10 +10,16 @@ public class Play : UIScreen
     protected Canvas joystick;
     protected ScoreController sc;
     protected Text[] texts;
-    void Start() {
+
+    void Awake() {
         Initialize();
         texts = GetComponentsInChildren<Text>();
-        sc.PlayGame();
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (gm != null)
+        {
+            gm.RegisterListener(this);
+        }
+        //sc.PlayGame();
     }
 
     void Update() {
@@ -35,7 +39,6 @@ public class Play : UIScreen
 
     void Initialize()
     {
-        Time.timeScale = 1;
         sc = FindObjectOfType<ScoreController>();
         Canvas[] canvases = FindObjectsOfType<Canvas>();
         foreach (Canvas canvas in canvases)
@@ -55,50 +58,25 @@ public class Play : UIScreen
 
     public void OnPauseBtn()
     {
-        pausePanel.SetActive(true);
-        lowerBtnPanel.SetActive(true);
-
-        pauseBtn.SetActive(false);
-
-     
-        joystick.gameObject.SetActive(false);
-        Time.timeScale = 0;
-        sc.StopGame();
-
-        DataManager dm = FindObjectOfType<DataManager>();
-        if (dm.language == "rus")
-        {
-            ChangeRusLanguage();
-            return;
-        }
-        if (dm.language == "eng")
-        {
-            ChangeEngLanguage();
-            return;
-        }
-
         Debug.Log("Pause!");
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.PauseGame(false);
     }
-    public void OnExitBtn() {
-        pausePanel.SetActive(false);
-        lowerBtnPanel.SetActive(false);
 
-        pauseBtn.SetActive(true);
-        
-        sc.Restart();
-        SceneManager.LoadScene("MenuS");
+    public void OnExitBtn()
+    {
+        Debug.Log("Exit!");
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.UnpauseGame(true);
+        gm.StopGame();
     }
+
     public void OnContinueBtn() {
         Debug.Log("OnContinueBtn");
-        pausePanel.SetActive(false);
-        lowerBtnPanel.SetActive(false);
-
-        joystick.gameObject.SetActive(true);
-
-        pauseBtn.SetActive(true);
-        Time.timeScale = 1;
-        sc.PlayGame();
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.UnpauseGame(false);
     }
+
     public override void Show()
     {
         base.Show();
@@ -114,6 +92,7 @@ public class Play : UIScreen
             return;
         }
     }
+
     public void ChangeRusLanguage()
     {
         Debug.Log("Changed rus language");
@@ -137,6 +116,7 @@ public class Play : UIScreen
             }
         }
     }
+
     public void ChangeEngLanguage()
     {
         Debug.Log("Changed rus language");
@@ -165,5 +145,82 @@ public class Play : UIScreen
                 text.text = "continue"; continue;
             }
         }
+    }
+
+    public void OnGameStarted()
+    {
+        Debug.Log("OnGameStarted()");
+    }
+
+    public void OnGamePaused()
+    {
+        Debug.Log("OnGamePaused()");
+
+        pausePanel.SetActive(true);
+        lowerBtnPanel.SetActive(true);
+        pauseBtn.SetActive(false);
+        joystick.gameObject.SetActive(false);
+
+        // set alpha
+        Image background = GetComponent<Image>();
+        var tempColor = background.color;
+        tempColor.a = 0.4f;
+        background.color = tempColor;
+
+        DataManager dm = FindObjectOfType<DataManager>();
+        if (dm.language == "rus")
+        {
+            ChangeRusLanguage();
+            return;
+        }
+        if (dm.language == "eng")
+        {
+            ChangeEngLanguage();
+            return;
+        }
+    }
+
+    public void OnGameUnpaused()
+    {
+        Debug.Log("OnGameUnpaused()");
+
+        // set alpha
+        Image background = GetComponent<Image>();
+        var tempColor = background.color;
+        tempColor.a = 0f;
+        background.color = tempColor;
+
+        GameManager gm = FindObjectOfType<GameManager>();
+        if (!gm.isGameOver)
+        {
+            pausePanel.SetActive(false);
+            lowerBtnPanel.SetActive(false);
+            joystick.gameObject.SetActive(true);
+            pauseBtn.SetActive(true);
+        }
+    }
+
+    public void OnGameOver()
+    {
+        Debug.Log("OnGameOver()");
+        joystick.gameObject.SetActive(false);
+        Hide();
+    }
+
+    public void OnGameStopped()
+    {
+        Debug.Log("OnGameStopped()");
+
+        pausePanel.SetActive(false);
+        lowerBtnPanel.SetActive(false);
+        joystick.gameObject.SetActive(false);
+        pauseBtn.SetActive(false);
+        sc.Restart();
+
+        Hide();
+
+        // find LevelChanger
+        LevelChanger levelChanger = FindObjectOfType<LevelChanger>();
+        levelChanger.FadeToLevel("MenuS");
     }
 }

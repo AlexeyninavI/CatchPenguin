@@ -42,6 +42,7 @@ public class ScoreController : MonoBehaviour
         record = dm.record;
         reward = 0;
         pauseGame = true;
+        ScoreUpLimit = 5;
     }
     public void PlayGame()
     {

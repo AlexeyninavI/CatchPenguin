@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
 
 public class NavigationBaker : MonoBehaviour
@@ -8,7 +6,7 @@ public class NavigationBaker : MonoBehaviour
     // Start is called before the first frame update
     public NavMeshSurface[] surfaces;
     public Transform[] objectsToRotate = new Transform [16];
-    UnityEngine.AI.NavMeshSurface nav;
+    NavMeshSurface nav;
     // Use this for initialization
     void Start()
     {
@@ -17,7 +15,7 @@ public class NavigationBaker : MonoBehaviour
     }
     void Bake()
     {
-        UnityEngine.AI.NavMeshSurface nav = GetComponent<UnityEngine.AI.NavMeshSurface>();
+        NavMeshSurface nav = GetComponent<NavMeshSurface>();
         nav.BuildNavMesh();
     }
 }

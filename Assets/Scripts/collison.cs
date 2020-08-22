@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class collison : MonoBehaviour
 {
@@ -43,7 +41,7 @@ public class collison : MonoBehaviour
         {
             Physics.IgnoreCollision(collision.collider, GetComponent<Collider>());
             Destroy(collision.gameObject);
-            scontroller.ScaleUp(20); // При взаимодействии с пингвином увериличавется счетчик на 20
+            scontroller.ScaleUp(2); // При взаимодействии с пингвином увериличавется счетчик на 20
         }
         else if (collision.gameObject.name == "fishBullet(Clone)")
         {
@@ -55,21 +53,24 @@ public class collison : MonoBehaviour
         {
             //Destroy((GameObject.Find("Player")));
             Destroy(gameObject);
-            scontroller.StopGame(); // Остановливаю счетчик
-            Time.timeScale = 0;
+            //scontroller.StopGame(); // Остановливаю счетчик
             Canvas[] canvases = FindObjectsOfType<Canvas>();
             foreach (Canvas canvas in canvases)
             {
                 if (canvas.gameObject.name == "JoystickCanvas")
                 {
-
                     //Debug.Log("CANVASFINDED");
                     joystick = canvas;
                 }
             }
-            joystick.gameObject.SetActive(false);
-            UIHome.instance.ShowGameOver();
+            //joystick.gameObject.SetActive(false);
 
+            // let's find GameManager
+            GameManager gm = FindObjectOfType<GameManager>();
+            // and talk player is dead
+            gm.PauseGame(true);
+            gm.GameOver();
+            gm.onPlayerDeath();
         }
         //Debug.Log("Enter Called"+collision.gameObject.name);
 

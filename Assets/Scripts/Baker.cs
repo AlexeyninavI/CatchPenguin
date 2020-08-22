@@ -1,43 +1,31 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.AI;
-
 
 public class Baker : MonoBehaviour
 {
     public bool timerEnable = true;
-    public float timef;
-    // Start is called before the first frame update
+    public float timef = 2;
+    NavMeshSurface nav;
 
-    UnityEngine.AI.NavMeshSurface nav;
     // Use this for initialization
     private void Bake()
     {
         nav.BuildNavMesh();
     }
 
-    public void updateNavMesh()
+    public void UpdateNavMesh()
     {
         nav.UpdateNavMesh(nav.navMeshData);
     }
 
-    private void SetOptimization()
-    {
-        nav.overrideVoxelSize = true;
-        nav.voxelSize = 0.25f;
-        nav.overrideTileSize = true;
-        nav.tileSize = 64;
-    }
-
+    // Start is called before the first frame update
     void Start()
     {
-        nav = GetComponent<UnityEngine.AI.NavMeshSurface>();
-        //SetOptimization();
+        nav = GetComponent<NavMeshSurface>();
         Bake();
         if (timerEnable)
         {
-            InvokeRepeating("UpdateNavMesh", 0, timef);
+            InvokeRepeating("UpdateNavMesh", timef, timef);
         }
     }
 

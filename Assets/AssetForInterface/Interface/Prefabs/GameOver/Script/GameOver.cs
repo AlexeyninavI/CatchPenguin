@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -12,7 +10,6 @@ public class GameOver : UIScreen
     }
     void Initialize()
     {
-       // Time.timeScale = 1;
         Canvas[] canvases = FindObjectsOfType<Canvas>();
         foreach (Canvas canvas in canvases)
         {
@@ -29,14 +26,29 @@ public class GameOver : UIScreen
         sc.GameOver();
 
         Hide();
-        SceneManager.LoadSceneAsync("MenuS");
+   
+        // find LevelChanger
+        LevelChanger levelChanger = FindObjectOfType<LevelChanger>();
+        levelChanger.FadeToLevel("MenuS");
+
+        // play again for animate
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.UnpauseGame(true);
     }
+
     public void OnRestartBtn() {
         ScoreController sc = FindObjectOfType<ScoreController>();
         sc.GameOver();
 
         Hide();
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().name);
+
+        // find LevelChanger
+        LevelChanger levelChanger = FindObjectOfType<LevelChanger>();
+        levelChanger.FadeToLevel(SceneManager.GetActiveScene().name);
+
+        // play again for animate
+        GameManager gm = FindObjectOfType<GameManager>();
+        gm.UnpauseGame(true);
     }
     public override void Show()
     {

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
 
 public class ManagerManagers : MonoBehaviour
@@ -9,6 +8,7 @@ public class ManagerManagers : MonoBehaviour
     public ScoreController scoreControllersc;
     public Respawn respawnManager;
     public UIHome uiInterface;
+    public GameManager gameManager;
 
     void LoadManagers()
     {
@@ -33,7 +33,8 @@ public class ManagerManagers : MonoBehaviour
         charactersManager.InitializeCharactersFromDataManager(); // Загружаем данные о персонажах из DataManager
         scoreControllersc.Initialize(); // Загружаем данные из DataManager в ScoreController
     }
-    void Start()
+
+    void Awake()
     {
         LoadManagers();
         InitManagers();
